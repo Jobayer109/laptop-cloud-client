@@ -1,14 +1,15 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import google from "../../assets/icons/google.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
 
 const Login = () => {
+  const [error, setError] = useState("");
   const { signInUser, googleSignIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -19,10 +20,12 @@ const Login = () => {
     console.log(data);
     signInUser(data.email, data.password)
       .then((result) => {
+        navigate("/");
+        setError("");
         console.log(result.user);
       })
       .catch((error) => {
-        toast.error(error.message);
+        setError(error.message);
       });
   };
 
@@ -32,14 +35,14 @@ const Login = () => {
         console.log(result.user);
       })
       .catch((error) => {
-        toast.error(error.message);
-        console.log(error.message);
+        setError(error.message);
       });
   };
 
   return (
     <div className="text-center mt-16">
       <h3 className="text-2xl font-semibold text-green-600 mb-6">Sign in</h3>
+      <p className="text-xs text-red-600 text-center font-semibold">{error}</p>
       <form onSubmit={handleSubmit(handleSignIn)}>
         <input
           type="email"
@@ -73,17 +76,17 @@ const Login = () => {
         />
         <div className="w-[27%] mx-auto cursor-pointer ">
           <div className="divider  text-xs text-green-600">OR</div>
-          <div className="flex items-center border border-green-500 rounded-full p-1 hover:bg-green-50">
+          <div className="flex items-center border border-green-500 rounded-full p-1 hover:bg-green-200">
             <img src={google} alt="" className="h-8" />
             <input
               onClick={handleGoogleSignIn}
               type="button"
               value="Continue with google"
-              className="ml-12 font-medium text-sm"
+              className="ml-16 font-medium text-sm"
             />
           </div>
           <p className="text-xs mt-2">
-            New in Tahmi's parlour ?{" "}
+            New in Laptop Cloud ?{" "}
             <Link
               to="/register"
               className="text-green-600 font-mono text-sm font-semibold hover:underline"
