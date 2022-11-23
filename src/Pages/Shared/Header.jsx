@@ -48,7 +48,7 @@ const Header = () => {
           </ul>
         </div>
         <Link>
-          <img src={logo} alt="" className="h-12" />
+          <img src={logo} alt="" className="h-10" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">

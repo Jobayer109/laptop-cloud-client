@@ -1,9 +1,14 @@
-import React from "react";
+import { GoogleAuthProvider } from "firebase/auth";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import google from "../../assets/icons/google.png";
+import { AuthContext } from "../../Contexts/AuthProvider";
 
 const Login = () => {
+  const { signInUser, googleSignIn } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
   const {
     register,
     handleSubmit,
@@ -12,9 +17,25 @@ const Login = () => {
 
   const handleSignIn = (data) => {
     console.log(data);
+    signInUser(data.email, data.password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
-  const handleGoogleSignIn = () => {};
+  const handleGoogleSignIn = () => {
+    googleSignIn(googleProvider)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        console.log(error.message);
+      });
+  };
 
   return (
     <div className="text-center mt-16">
