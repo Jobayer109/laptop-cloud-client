@@ -8,10 +8,10 @@ const Banner = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img
           src={banner}
-          className="w-1/2 h-[500px] translate-x-4 duration-500 ease-in "
+          className="w-1/2 h-[400px] translate-x-4 duration-500 ease-in "
           alt="laptop"
         />
-        <div className="w-1/2">
+        <div className="">
           <h1 className="text-5xl font-bold font-mono">
             Sell Here <br /> Your used Laptop
           </h1>

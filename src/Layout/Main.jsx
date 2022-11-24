@@ -5,10 +5,10 @@ import Header from "../Pages/Shared/Header";
 
 const Main = () => {
   return (
-    <div>
+    <div className="bg-green-50">
       <Header />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
