@@ -1,4 +1,3 @@
-// import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import BookingModal from "./BookingModal";
@@ -15,7 +14,7 @@ const Laptops = () => {
           <Laptop key={laptop._id} laptop={laptop} setDetails={setDetails}></Laptop>
         ))}
       </div>
-      <BookingModal details={details}></BookingModal>
+      {details && <BookingModal details={details} setDetails={setDetails}></BookingModal>}
     </div>
   );
 };
