@@ -37,7 +37,7 @@ const Register = () => {
           name="name"
           {...register("name", { required: true })}
           placeholder="Your name"
-          className="border w-80 p-2 rounded-md mt-2 border-green-500"
+          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500"
         />{" "}
         {errors.name?.type === "required" && (
           <p className="text-xs text-red-700">Name is required</p>
@@ -48,7 +48,7 @@ const Register = () => {
           name="email"
           {...register("email", { required: true })}
           placeholder="Email"
-          className="border w-80 p-2 rounded-md mt-2 border-green-500"
+          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500"
         />{" "}
         {errors.email?.type === "required" && (
           <p className="text-xs text-red-700">Email is required</p>
@@ -62,17 +62,25 @@ const Register = () => {
             pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$/,
           })}
           placeholder="Password"
-          className="border w-80 p-2 rounded-md mt-2 border-green-500"
+          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500"
         />{" "}
         {errors.password?.type === "required" && (
           <p className="text-xs text-red-700">Password is required</p>
         )}
         <br />
+        <select className="select select-bordered  border-green-500 w-80 mt-2">
+          <option disabled selected>
+            Select your role
+          </option>
+          <option>Buyer</option>
+          <option>Seller</option>
+        </select>
+        <br />
         <input
           type="file"
           name="image"
           {...register("image")}
-          className="border w-80 p-2 rounded-md mt-2 border-green-500"
+          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500"
         />{" "}
         <br />
         <input

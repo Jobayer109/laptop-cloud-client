@@ -23,22 +23,16 @@ const Header = () => {
           Home
         </Link>
       </li>
-      <li>
-        <Link
-          className="text-sm hover:border-b-2 pb-1 text-white  hover:text-black hover:border-green-400 hover:bg-green-100"
-          to="/products"
-        >
-          Products
-        </Link>
-      </li>
-      <li>
-        <Link
-          className="text-sm hover:border-b-2 pb-1 text-white  hover:text-black hover:border-green-400 hover:bg-green-100"
-          to="/dashboard"
-        >
-          Dashboard
-        </Link>
-      </li>
+      {user?.email && (
+        <li>
+          <Link
+            className="text-sm hover:border-b-2 pb-1 text-white  hover:text-black hover:border-green-400 hover:bg-green-100"
+            to="/dashboard"
+          >
+            Dashboard
+          </Link>
+        </li>
+      )}
       <li>
         <Link
           className="text-sm hover:border-b-2 pb-1 text-white hover:text-black  hover:border-green-400 hover:bg-green-100"
@@ -73,12 +67,14 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         {user?.email ? (
-          <button
-            onClick={handleSignOut}
-            className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold hover:bg-green-700 hover:text-white translate duration-300 ease-in "
-          >
-            Sign out
-          </button>
+          <Link to="/login">
+            <button
+              onClick={handleSignOut}
+              className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold hover:bg-green-700 hover:text-white translate duration-300 ease-in "
+            >
+              Sign out
+            </button>
+          </Link>
         ) : (
           <Link to="/login">
             <button className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold hover:bg-green-700  hover:text-white translate duration-300 ease-in">
@@ -86,6 +82,11 @@ const Header = () => {
             </button>
           </Link>
         )}
+      </div>
+      <div>
+        <label htmlFor="dashboard-drawer" className="btn btn-ghost drawer-button lg:hidden">
+          <FaBars />
+        </label>
       </div>
     </div>
   );

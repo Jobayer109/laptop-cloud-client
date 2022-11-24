@@ -15,14 +15,14 @@ const Laptop = ({ laptop, setDetails }) => {
           <p>Original Price: ${original_price}</p>
           <p>Location: {location}</p>
           <p>Posted on: {posted_on}</p>
-          <p>Years of use: {year_of_use}</p>
+          <p>Years of use: {year_of_use} year</p>
           <p>Seller's name: {seller_name}</p>
         </div>
         <div className="card-actions lg:justify-end mt-5">
           <label
             onClick={() => setDetails(laptop)}
             htmlFor="laptop-modal"
-            className="border w-24 bg-green-600 text-white px-2 py-1 rounded-md font-semibold hover:bg-green-700 translate duration-300 ease-in"
+            className="border w-24 bg-green-600 text-white px-2 py-2 rounded-md font-semibold hover:bg-green-700 translate duration-300 ease-in"
           >
             Book Now
           </label>

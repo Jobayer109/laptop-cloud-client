@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
+import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
+import MyOrders from "../Pages/Dashboard/MyOrders";
 import Home from "../Pages/Home/Home";
 import Laptops from "../Pages/Home/Laptops";
 import Login from "../Pages/Login/Login";
@@ -33,6 +35,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    errorElement: <ErrorPage />,
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <MyOrders />,
       },
     ],
   },
