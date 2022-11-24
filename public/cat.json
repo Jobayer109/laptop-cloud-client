@@ -1,0 +1,42 @@
+[
+  {
+    "id": "01",
+    "name": "Samsung",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png"
+  },
+  {
+    "id": "02",
+    "name": "Apple",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+  },
+  {
+    "id": "03",
+    "name": "HP",
+    "img": "https://seeklogo.com/images/H/HP-logo-1F4748AB7E-seeklogo.com.png"
+  },
+  {
+    "id": "04",
+    "name": "Lenovo",
+    "img": "https://1000logos.net/wp-content/uploads/2017/03/Lenovo-Logo-2003.png"
+  },
+  {
+    "id": "05",
+    "name": "Dell",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Dell_Logo.png/1200px-Dell_Logo.png"
+  },
+  {
+    "id": "06",
+    "name": "Asus",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/ASUS_Logo.svg/2560px-ASUS_Logo.svg.png"
+  },
+  {
+    "id": "07",
+    "name": "Microsoft",
+    "img": "https://cdn.worldvectorlogo.com/logos/microsoft.svg"
+  },
+  {
+    "id": "08",
+    "name": "Acer",
+    "img": "https://cdn.worldvectorlogo.com/logos/acer-2011.svg"
+  }
+]
