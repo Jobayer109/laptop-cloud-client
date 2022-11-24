@@ -66,14 +66,12 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         {user?.email ? (
-          <Link to="/login">
-            <button className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold font-mono hover:bg-green-700 ">
-              Sign out
-            </button>
-          </Link>
+          <button className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold hover:bg-green-700 ">
+            Sign out
+          </button>
         ) : (
           <Link to="/login">
-            <button className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold font-mono hover:bg-green-700 ">
+            <button className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold hover:bg-green-700 ">
               Sign in
             </button>
           </Link>

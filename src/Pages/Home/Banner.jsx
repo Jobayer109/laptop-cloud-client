@@ -4,7 +4,7 @@ import banner from "../../assets/images/banner.png";
 
 const Banner = () => {
   return (
-    <div className="hero mt-8">
+    <div className="hero mt-8 bg-gradient-to-t from-white to-green-100 rounded-lg">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img
           src={banner}

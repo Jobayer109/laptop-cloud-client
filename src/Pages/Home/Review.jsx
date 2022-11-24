@@ -5,7 +5,7 @@ const Review = ({ review }) => {
   const { comment, name, country, rating, image } = review;
 
   return (
-    <div className="container flex flex-col w-full h-52 p-6 mx-auto divide-y rounded-lg bg-slate-700 border hover:-translate-y-2 duration-500 ease-in">
+    <div className="container flex flex-col w-full h-52 p-6 mx-auto divide-y rounded-lg bg-slate-700 border focus:-translate duration-500 ease-in-out">
       <div className="flex justify-between p-4">
         <div className="flex space-x-4">
           <div>
