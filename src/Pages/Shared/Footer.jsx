@@ -3,13 +3,13 @@ import logo from "../../assets/images/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="footer p-20 bg-black text-green-600">
+    <footer className="footer p-20 bg-black text-gray-400">
       <div>
         <img src={logo} alt="" className="h-12" />
         <p className="text-xl">
           Laptop Cloud Ltd.
           <br />
-          <span className="text-sm text-white">Providing reliable tech since 2015</span>
+          <span className="text-sm">Providing reliable tech since 2015</span>
         </p>
       </div>
       <div>

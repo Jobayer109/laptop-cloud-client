@@ -26,7 +26,10 @@ const Categories = () => {
           Subscribe
         </button>
       </div>
-
+      <h3 className="text-2xl mb-6  font-bold">
+        {" "}
+        <span className="text-3xl text-green-600 font-bold">C</span>ategories
+      </h3>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:grid-cols-4 mt-10 bg-green- p-4 rounded-lg shadow-">
         {categories?.map((category) => (
           <Category key={category._id} category={category}></Category>
