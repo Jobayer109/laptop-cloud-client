@@ -28,7 +28,7 @@ const Register = () => {
   };
 
   return (
-    <div className="text-center mt-16">
+    <div className="text-center my-24">
       <h3 className="text-2xl font-semibold text-green-500 mb-6">Register</h3>
       <p className="text-xs text-red-600 text-center font-semibold">{error}</p>
       <form onSubmit={handleSubmit(handleRegister)}>

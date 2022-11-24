@@ -5,7 +5,14 @@ import logo from "../../assets/images/logo.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut()
+      .then((result) => {})
+      .catch((error) => {});
+  };
+
   const navItems = (
     <>
       <li>
@@ -66,12 +73,15 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         {user?.email ? (
-          <button className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold hover:bg-green-700 ">
+          <button
+            onClick={handleSignOut}
+            className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold hover:bg-green-700 hover:text-white translate duration-300 ease-in "
+          >
             Sign out
           </button>
         ) : (
           <Link to="/login">
-            <button className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold hover:bg-green-700 ">
+            <button className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold hover:bg-green-700  hover:text-white translate duration-300 ease-in">
               Sign in
             </button>
           </Link>

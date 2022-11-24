@@ -1,0 +1,134 @@
+[
+  {
+    "category_id": "01",
+    "name": "Samsung Galaxy Book",
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/samsung/galaxy-book-pro-360/galaxy-book-pro-360-02-228x228.jpg",
+    "location": "Rangpur",
+    "resale_price": "30000",
+    "original_price": "70000",
+    "year_of_use": "1.5",
+    "posted_on": "12-02-2022",
+    "seller_name": "Bahar uddin"
+  },
+  {
+    "category_id": "01",
+    "name": "Samsung Galaxy Book Pro",
+    "img": "https://mcsolution.com.bd/wp-content/uploads/2021/11/samsung-galaxy-book-pro-13-price-in-bangladesh.webp",
+    "location": "Sylhet",
+    "resale_price": "36000",
+    "original_price": "65000",
+    "year_of_use": "1",
+    "posted_on": "12-08-2022",
+    "seller_name": "Pritom Dash"
+  },
+  {
+    "category_id": "01",
+    "name": "Samsung Chrome Book",
+    "img": "https://mcsolution.com.bd/wp-content/uploads/2021/11/samsung-galaxy-book-pro-13-price-in-bd.webp",
+    "location": "Comilla",
+    "resale_price": "47500",
+    "original_price": "90000",
+    "year_of_use": "1.5",
+    "posted_on": "04-09-2022",
+    "seller_name": "Abdul Gani"
+  },
+  {
+    "category_id": "02",
+    "name": "MacBook Pro Core i7",
+    "img": "https://assets.swap.com.bd/products/9dfcd5e558dfa04aaf37f137a1d9d3e5/mdpi/Macbook-Pro.png",
+    "location": "Dinajpur",
+    "resale_price": "47500",
+    "original_price": "90000",
+    "year_of_use": "1",
+    "posted_on": "04-06-2022",
+    "seller_name": "Mokbul Hossain"
+  },
+  {
+    "category_id": "02",
+    "name": "MackBook pro core",
+    "img": "https://assets.swap.com.bd/products/1896a3bf730516dd643ba67b4c447d36/mdpi/Macbook%20Air%20Core%20i3%201.png",
+    "location": "Noakhali",
+    "resale_price": "37500",
+    "original_price": "80500",
+    "year_of_use": "1.5",
+    "posted_on": "04-05-2022",
+    "seller_name": "Monu Mia"
+  },
+  {
+    "category_id": "02",
+    "name": "MackBook air core",
+    "img": "https://assets.swap.com.bd/products/8cb22bdd0b7ba1ab13d742e22eed8da2/mdpi/3-Macbook-Air.png",
+    "location": "Jessore",
+    "resale_price": "37000",
+    "original_price": "75500",
+    "year_of_use": "1",
+    "posted_on": "23-08-2022",
+    "seller_name": "Hobi khan"
+  },
+  {
+    "category_id": "03",
+    "name": "HP EliteBook 840",
+    "img": "https://www.bdstall.com/asset/product-image/giant_176358.jpeg",
+    "location": "Mymensingh",
+    "resale_price": "27000",
+    "original_price": "55500",
+    "year_of_use": "1.5",
+    "posted_on": "23-08-2022",
+    "seller_name": "Mahatab Hossain"
+  },
+  {
+    "category_id": "03",
+    "name": "HP EliteBook pro",
+    "img": "https://www.bdstall.com/asset/product-image/giant_191375.jpg",
+    "location": "Pirojpur",
+    "resale_price": "29500",
+    "original_price": "65500",
+    "year_of_use": "1.5",
+    "posted_on": "18-08-2022",
+    "seller_name": "Shahadat mia"
+  },
+  {
+    "category_id": "03",
+    "name": "HP EliteBook C3",
+    "img": "https://www.bdstall.com/asset/product-image/giant_133585.jpg",
+    "location": "Borishal",
+    "resale_price": "28000",
+    "original_price": "55500",
+    "year_of_use": "1.2",
+    "posted_on": "10-10-2022",
+    "seller_name": "Khairul Islam"
+  },
+  {
+    "category_id": "04",
+    "name": "Lenovo IdeaPad D330",
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/d330/d330-1-500x500.jpg",
+    "location": "Dhaka",
+    "resale_price": "47000",
+    "original_price": "85500",
+    "year_of_use": "1",
+    "posted_on": "23-03-2022",
+    "seller_name": "Reazul Islam"
+  },
+  {
+    "category_id": "04",
+    "name": "Lenovo IdeaPad Slim 3i",
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/slim-3i/slim-3i-001-500x500.jpg",
+    "location": "Saidpur",
+    "resale_price": "47000",
+    "original_price": "105500",
+    "year_of_use": "1",
+    "posted_on": "17-09-2022",
+    "seller_name": "Boduruddin khan"
+  },
+  {
+    "category_id": "04",
+    "name": "Lenovo IdeaPad 3",
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/ideapad-3/ideapad-3-01102-500x500.jpg",
+    "location": "Rangpur",
+    "resale_price": "27000",
+    "original_price": "69500",
+    "year_of_use": "1.5",
+    "posted_on": "13-07-2022",
+    "seller_name": "Abu Hurayra"
+  }
+]

@@ -3,7 +3,7 @@ import React from "react";
 import Category from "./Category";
 
 const Categories = () => {
-  const { data: categories } = useQuery({
+  const { data: categories, isLoading } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
       const res = await fetch(`http://localhost:5000/categories`);
@@ -11,6 +11,11 @@ const Categories = () => {
       return data;
     },
   });
+
+  if (isLoading) {
+    return <progress className=" progress w-full"></progress>;
+  }
+
   return (
     <section>
       <div className="flex w-[50%] mx-auto mt-16">
@@ -26,7 +31,7 @@ const Categories = () => {
           Subscribe
         </button>
       </div>
-      <h3 className="text-2xl mb-6  font-bold">
+      <h3 className="text-2xl mb-6  font-bold mt-10">
         {" "}
         <span className="text-3xl text-green-600 font-bold">C</span>ategories
       </h3>

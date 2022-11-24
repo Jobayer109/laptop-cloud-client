@@ -1,7 +1,7 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import google from "../../assets/icons/google.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
 
@@ -10,6 +10,8 @@ const Login = () => {
   const { signInUser, googleSignIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -20,7 +22,7 @@ const Login = () => {
     console.log(data);
     signInUser(data.email, data.password)
       .then((result) => {
-        navigate("/");
+        navigate(from, { replace: true });
         setError("");
         console.log(result.user);
       })
@@ -40,7 +42,7 @@ const Login = () => {
   };
 
   return (
-    <div className="text-center mt-16">
+    <div className="text-center my-24 ">
       <h3 className="text-2xl font-semibold text-green-600 mb-6">Sign in</h3>
       <p className="text-xs text-red-600 text-center font-semibold">{error}</p>
       <form onSubmit={handleSubmit(handleSignIn)}>
