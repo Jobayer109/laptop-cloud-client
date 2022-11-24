@@ -5,7 +5,7 @@ import Header from "../Pages/Shared/Header";
 
 const Main = () => {
   return (
-    <div className="bg-green-50">
+    <div>
       <Header />
       <Outlet />
       <Footer />
@@ -14,3 +14,4 @@ const Main = () => {
 };
 
 export default Main;
+//  className = "bg-gradient-to-b from-green-700 to-green-50";
