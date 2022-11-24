@@ -4,7 +4,7 @@ import { AuthContext } from "../../Contexts/AuthProvider";
 
 const BookingModal = ({ details, setDetails }) => {
   const { user } = useContext(AuthContext);
-  const { name } = details;
+  const { name, img, resale_price } = details;
 
   const handleBooking = (e) => {
     e.preventDefault();
@@ -19,6 +19,8 @@ const BookingModal = ({ details, setDetails }) => {
       email,
       phone,
       location,
+      img,
+      price: resale_price,
     };
 
     fetch(`http://localhost:5000/bookings`, {

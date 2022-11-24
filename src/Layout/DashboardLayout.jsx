@@ -6,9 +6,9 @@ const DashboardLayout = () => {
   return (
     <section>
       <Header />
-      <div className="drawer drawer-mobile">
+      <div className="drawer drawer-mobile px-10 mt-10">
         <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content px-0">
           <Outlet></Outlet>
         </div>
         <div className="drawer-side">
