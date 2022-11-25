@@ -24,6 +24,7 @@ const Register = () => {
       })
       .catch((error) => {
         setError(error.code, error.message);
+        return;
       });
 
     const image = data.image[0];

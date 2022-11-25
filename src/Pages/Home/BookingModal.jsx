@@ -81,12 +81,14 @@ const BookingModal = ({ details, setDetails }) => {
               placeholder="Phone number"
               name="phone"
               className="input input-bordered w-full "
+              required
             />
             <input
               type="text"
               placeholder="Meeting location"
               name="location"
               className="input input-bordered w-full "
+              required
             />
             <br />
             <input

@@ -21,7 +21,6 @@ const Laptop = ({ laptop, setDetails }) => {
             <img src={img} alt="" className="w-80 h-60" />
           </PhotoView>
         </PhotoProvider>
-        {/* <img src={img} alt="laptop" className="w-80 h-60" /> */}
       </figure>
       <div className="w-1/2">
         <h2 className="">{name}</h2>
@@ -38,7 +37,7 @@ const Laptop = ({ laptop, setDetails }) => {
           <label
             onClick={() => setDetails(laptop)}
             htmlFor="laptop-modal"
-            className="border w-24 mb-6 bg-green-600 text-white px-2 py-2 rounded-md font-semibold hover:bg-green-700 translate duration-300 ease-in"
+            className=" btn border w-40 mb-6 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700 translate duration-300 ease-in"
           >
             Book Now
           </label>

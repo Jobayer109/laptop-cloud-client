@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import AddProduct from "../Pages/Dashboard/AddProduct";
+import AllUsers from "../Pages/Dashboard/AllUsers";
 import MyOrders from "../Pages/Dashboard/MyOrders";
 import MyProducts from "../Pages/Dashboard/MyProducts";
 import Payment from "../Pages/Dashboard/Payment";
@@ -11,6 +12,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
 import Blogs from "../Pages/Shared/Blogs";
 import ErrorPage from "../Pages/Shared/ErrorPage";
+import AdmitRoute from "./AdmitRoute";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
@@ -57,11 +59,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/myProducts",
-        element: <MyProducts />,
+        element: (
+          <AdmitRoute>
+            <MyProducts />
+          </AdmitRoute>
+        ),
       },
       {
         path: "/dashboard/addProduct",
-        element: <AddProduct />,
+        element: (
+          <AdmitRoute>
+            <AddProduct />
+          </AdmitRoute>
+        ),
+      },
+      {
+        path: "/dashboard/users",
+        element: (
+          <AdmitRoute>
+            <AllUsers />
+          </AdmitRoute>
+        ),
       },
       {
         path: "/dashboard/payment/:id",
