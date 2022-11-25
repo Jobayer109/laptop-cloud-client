@@ -11,8 +11,8 @@ const Home = () => {
       <Banner />
       <Categories />
       <Advertises />
-      <Reviews />
       <DownloadApp />
+      <Reviews />
     </div>
   );
 };

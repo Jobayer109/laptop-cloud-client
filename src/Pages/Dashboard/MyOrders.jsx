@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MyOrders = () => {
   const { data: orders, isLoading } = useQuery({
@@ -14,6 +15,8 @@ const MyOrders = () => {
   if (isLoading) {
     return <progress className="progress w-full"></progress>;
   }
+
+  const handlePayment = () => {};
 
   return (
     <div className="overflow-x-auto w-full">
@@ -41,7 +44,15 @@ const MyOrders = () => {
               <td>{order.laptopName}</td>
               <td>$ {order.price}</td>
               <th>
-                <button className="btn btn-success text-white btn-sm">Pay</button>
+                {order?.price && order?.paid ? (
+                  <button className="btn btn-success text-white btn-sm">Paid</button>
+                ) : (
+                  <Link to={`/dashboard/payment/${order._id}`}>
+                    <button onClick={() => handlePayment(order._id)} className="btn w-16 btn-sm">
+                      Pay
+                    </button>
+                  </Link>
+                )}
               </th>
             </tr>
           ))}

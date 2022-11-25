@@ -5,7 +5,7 @@ const Review = ({ review }) => {
   const { comment, name, country, rating, image } = review;
 
   return (
-    <div className="container flex flex-col w-full h-52 p-6 mx-auto divide-y rounded-lg bg-slate-700 border focus:-translate duration-500 ease-in-out">
+    <div className="container flex flex-col w-full h-52 p-6 mx-auto divide-y rounded-lg bg-slate-800 border focus:-translate duration-500 ease-in-out">
       <div className="flex justify-between p-4">
         <div className="flex space-x-4">
           <div>
@@ -16,7 +16,7 @@ const Review = ({ review }) => {
             />
           </div>
           <div>
-            <h4 className="font-bold text-sm text-green-500">{name}</h4>
+            <h4 className="font-bold text-sm text-gray-300">{name}</h4>
             <span className="text-xs dark:text-gray-400">{country}</span>
           </div>
         </div>
