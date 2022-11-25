@@ -14,7 +14,6 @@ const AddProduct = () => {
   const handleAddProduct = (data) => {
     const image = data.image[0];
     const formData = new FormData();
-    // const formData = new FormData();
     formData.append("image", image);
     const url = `https://api.imgbb.com/1/upload?key=08dce7fbfc7b46f77e82a01c97db482a`;
 
@@ -59,13 +58,13 @@ const AddProduct = () => {
   return (
     <div>
       <h3 className="text-2xl font-bold mb-3">Add Product</h3>
-      <div className="w-[60%] mb-24 p-4 shadow-lg rounded-lg bg-green-50">
+      <div className="w-[60%] mx-auto mb-24 p-4 shadow-lg rounded-lg bg-green-100">
         <form onSubmit={handleSubmit(handleAddProduct)}>
           <input
             type="text"
             {...register("product", { required: true })}
             placeholder="Product's name"
-            className="w-full border border-gray-500 p-3 text-sm rounded-lg mt-6 mb-2"
+            className="w-full border border-gray-500 p-3 text-sm rounded-lg mb-2"
           />
           {errors.name && <span className="text-error text-xs">This field is required</span>}
           <br />
@@ -158,7 +157,7 @@ const AddProduct = () => {
           <input
             type="submit"
             value="Add Doctor"
-            className="border w-full mt-5 bg-green-600 text-white px-2 py-2 rounded-md font-semibold hover:bg-green-700 translate duration-300 ease-in"
+            className="btn border w-full mt-5 bg-green-600 text-white px-2 py-2 rounded-md font-semibold hover:bg-green-700 translate duration-300 ease-in"
           />
         </form>
       </div>

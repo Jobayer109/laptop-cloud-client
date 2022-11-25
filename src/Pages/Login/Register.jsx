@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 import google from "../../assets/icons/google.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
 
@@ -19,11 +20,46 @@ const Register = () => {
       .then((result) => {
         update(data.name);
         setError("");
-        navigate();
         console.log(result.user);
       })
       .catch((error) => {
         setError(error.code, error.message);
+      });
+
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=08dce7fbfc7b46f77e82a01c97db482a`;
+
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imageData) => {
+        if (imageData.success) {
+          const userInfo = {
+            user_name: data.name,
+            img: imageData.data.url,
+            email: data.email,
+            role: data.role,
+          };
+          fetch(`http://localhost:5000/users`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(userInfo),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data.insertedId) {
+                swal("Wow!", "User created Successfully !!", "success");
+                navigate("/login");
+              }
+            });
+        }
       });
   };
 
@@ -68,7 +104,10 @@ const Register = () => {
           <p className="text-xs text-red-700">Password is required</p>
         )}
         <br />
-        <select className="select select-bordered  border-green-500 w-80 mt-2">
+        <select
+          {...register("role", { required: true })}
+          className="select select-bordered  border-green-500 w-80 mt-2"
+        >
           <option disabled selected>
             Select your role
           </option>
@@ -79,7 +118,7 @@ const Register = () => {
         <input
           type="file"
           name="image"
-          {...register("image")}
+          {...register("image", { required: true })}
           className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500"
         />{" "}
         <br />
