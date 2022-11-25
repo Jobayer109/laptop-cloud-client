@@ -9,6 +9,7 @@ import Home from "../Pages/Home/Home";
 import Laptops from "../Pages/Home/Laptops";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
+import Blogs from "../Pages/Shared/Blogs";
 import ErrorPage from "../Pages/Shared/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
+      },
+      {
+        path: "blogs",
+        element: <Blogs />,
       },
     ],
   },
