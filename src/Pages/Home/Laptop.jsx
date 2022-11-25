@@ -1,8 +1,17 @@
 import React from "react";
 
 const Laptop = ({ laptop, setDetails }) => {
-  const { img, location, name, original_price, posted_on, resale_price, seller_name, year_of_use } =
-    laptop;
+  const {
+    img,
+    location,
+    name,
+    original_price,
+    posted_on,
+    resale_price,
+    seller_name,
+    year_of_use,
+    phone,
+  } = laptop;
   return (
     <div className="flex items-center justify-around shadow-lg">
       <figure>
@@ -16,6 +25,7 @@ const Laptop = ({ laptop, setDetails }) => {
           <p>Location: {location}</p>
           <p>Posted on: {posted_on}</p>
           <p>Years of use: {year_of_use} year</p>
+          <p>Phone: {phone}</p>
           <p>Seller's name: {seller_name}</p>
         </div>
         <div className="card-actions lg:justify-end mt-5">

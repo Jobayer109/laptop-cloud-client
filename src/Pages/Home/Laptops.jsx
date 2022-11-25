@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import noItem from "../../assets/images/no_item.svg";
 import BookingModal from "./BookingModal";
 import Laptop from "./Laptop";
@@ -10,7 +10,7 @@ const Laptops = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-6 px-20 mt-10 mb-24">
+      <div className="grid grid-cols-1 gap-10 px-20 mt-10 mb-24">
         {laptops.length ? (
           <>
             <h3 className="text-2xl mb-6  font-bold">
@@ -20,9 +20,14 @@ const Laptops = () => {
             </h3>
           </>
         ) : (
-          <div>
-            <img src={noItem} alt="" className="h-40 w-[50%] mx-auto my-10" />
-            <p className="text-2xl mb-6  font-bold text-center h-screen">No items available</p>
+          <div className="my-20 text-center">
+            <img src={noItem} alt="" className="h-40 w-[50%] mx-auto mb-10" />
+            <p className="text-2xl mb-6  font-bold ">No items available</p>
+            <Link to="/">
+              <button className="border w-60 bg-green-600 text-white px-2 py-2 rounded-md font-semibold hover:bg-white hover:text-green-600 hover:border-green-500 translate duration-300 ease-in">
+                Continue shopping
+              </button>
+            </Link>
           </div>
         )}
         {laptops?.map((laptop) => (
