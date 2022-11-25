@@ -36,6 +36,8 @@ const AddProduct = () => {
             name: data.product,
             year_of_use: data.purchase,
             seller_name: user?.displayName,
+            email: user?.email,
+            description: data.description,
           };
           fetch(`http://localhost:5000/products`, {
             method: "POST",
@@ -122,9 +124,11 @@ const AddProduct = () => {
           {errors.purchase && <span className="text-error text-xs">This field is required</span>}
           <br />
           <textarea
+            {...register("description", { required: true })}
             className="textarea textarea-bordered border-gray-500 w-full"
             placeholder="Description"
           ></textarea>
+          {errors.description && <span className="text-error text-xs">This field is required</span>}
           <br />
           <div>
             <select
