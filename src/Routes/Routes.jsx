@@ -14,6 +14,7 @@ import Blogs from "../Pages/Shared/Blogs";
 import ErrorPage from "../Pages/Shared/ErrorPage";
 import AdmitRoute from "./AdmitRoute";
 import PrivateRoute from "./PrivateRoute";
+import SellerRoute from "./SellerRoute";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,11 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     errorElement: <ErrorPage />,
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",
@@ -63,11 +68,19 @@ const router = createBrowserRouter([
           <AdmitRoute>
             <MyProducts />
           </AdmitRoute>
+        ) || (
+          <SellerRoute>
+            <MyProducts />
+          </SellerRoute>
         ),
       },
       {
         path: "/dashboard/addProduct",
         element: (
+          <SellerRoute>
+            <AddProduct />
+          </SellerRoute>
+        ) && (
           <AdmitRoute>
             <AddProduct />
           </AdmitRoute>

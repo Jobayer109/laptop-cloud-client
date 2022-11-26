@@ -54,7 +54,7 @@ const AllUsers = () => {
               <th></th>
               <th>Name</th>
               <th>Email</th>
-              {/* <th>Role</th> */}
+              <th>Role</th>
               <th>Admin</th>
               <th>Action</th>
             </tr>
@@ -65,7 +65,7 @@ const AllUsers = () => {
                 <th>{i + 1}</th>
                 <td>{user.user_name}</td>
                 <td>{user.email}</td>
-                {/* <td>{user.role}</td> */}
+                <td>{user.role}</td>
                 <td onClick={() => handleUpdate(user._id)}>
                   {user?.role === "admin" ? (
                     <button className="btn btn-primary btn-xs w-24 text-white">Admin</button>

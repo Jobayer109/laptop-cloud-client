@@ -1,21 +1,22 @@
 import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthProvider";
-import useAdmin from "../Hooks/useAdmin";
+import useSeller from "../Hooks/useSeller";
 
-const AdmitRoute = ({ children }) => {
+const SellerRoute = ({ children }) => {
   const { loading, user } = useContext(AuthContext);
-  const [isAdmin, isAdminLoading] = useAdmin(user?.email);
-  // const [isSeller, isSellerLoading] = useSeller(user?.email);
+  const [isSeller, isSellerLoading] = useSeller(user?.email);
+  // const [isAdmin, isAdminLoading] = useAdmin(user?.email);
+
   const location = useLocation();
-  if (loading || isAdminLoading) {
+  if (loading || isSellerLoading) {
     return <progress className="progress w-full"></progress>;
   }
 
-  if (user?.email && isAdmin) {
+  if (user?.email && isSeller) {
     return children;
   }
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };
 
-export default AdmitRoute;
+export default SellerRoute;

@@ -4,10 +4,11 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import google from "../../assets/icons/google.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import useToken from "../../Hooks/useToken";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { signInUser, googleSignIn } = useContext(AuthContext);
+  const { user, signInUser, googleSignIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
   const location = useLocation();
@@ -17,12 +18,16 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [isToken] = useToken(user?.email);
+
+  if (isToken) {
+    navigate(from, { replace: true });
+  }
 
   const handleSignIn = (data) => {
     console.log(data);
     signInUser(data.email, data.password)
       .then((result) => {
-        navigate(from, { replace: true });
         setError("");
         console.log(result.user);
       })

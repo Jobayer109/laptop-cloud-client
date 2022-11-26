@@ -3,9 +3,13 @@ import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import useAdmin from "../../Hooks/useAdmin";
+import useSeller from "../../Hooks/useSeller";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [isAdmin] = useAdmin(user?.email);
+  const [isSeller] = useSeller(user?.email);
 
   const handleSignOut = () => {
     logOut()
@@ -23,16 +27,25 @@ const Header = () => {
           Home
         </Link>
       </li>
+
       {user?.email && (
-        <li>
-          <Link
-            className="text-sm hover:border-b-2 pb-1 text-white  hover:text-black hover:border-green-400 hover:bg-green-100"
-            to="/dashboard"
-          >
-            Dashboard
-          </Link>
-        </li>
+        <>
+          {" "}
+          <li>
+            <Link
+              className="text-sm hover:border-b-2 pb-1 text-white  hover:text-black hover:border-green-400 hover:bg-green-100"
+              to="/dashboard"
+            >
+              {(isAdmin && "Admin Dashboard") ||
+                (isSeller && "Seller Dashboard") ||
+                (user?.email && "Dashboard")}
+              {/* {isSeller && user?.email ? "Seller Dashboard" : ""} */}
+              {/* {user?.email ? "Dashboard" : ""} */}
+            </Link>
+          </li>
+        </>
       )}
+
       <li>
         <Link
           className="text-sm hover:border-b-2 pb-1 text-white hover:text-black  hover:border-green-400 hover:bg-green-100"

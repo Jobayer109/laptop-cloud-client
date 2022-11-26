@@ -9,7 +9,11 @@ const MyOrders = () => {
   const { data: orders, isLoading } = useQuery({
     queryKey: ["orders", user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/myorders?email=${user?.email}`);
+      const res = await fetch(`http://localhost:5000/myorders?email=${user?.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("Token")}`,
+        },
+      });
       const data = await res.json();
       return data;
     },
@@ -52,12 +56,12 @@ const MyOrders = () => {
                     <td>$ {order.price}</td>
                     <th>
                       {order?.price && order?.paid ? (
-                        <button className="btn btn-success text-white btn-sm">Paid</button>
+                        <button className="btn bg-green-600 text-white btn-sm">Paid</button>
                       ) : (
                         <Link to={`/dashboard/payment/${order._id}`}>
                           <button
                             onClick={() => handlePayment(order._id)}
-                            className="btn w-16 btn-sm"
+                            className="btn btn-warning w-16 btn-sm"
                           >
                             Pay
                           </button>

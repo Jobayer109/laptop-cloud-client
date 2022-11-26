@@ -4,11 +4,20 @@ import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import google from "../../assets/icons/google.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import useToken from "../../Hooks/useToken";
 
 const Register = () => {
-  const { createUser, update } = useContext(AuthContext);
+  const { createUser, update, logOut } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const [createdEmail, setCreatedEmail] = useState("");
   const navigate = useNavigate();
+  const [isToken] = useToken(createdEmail);
+  // console.log("Token:", isToken);
+  // console.log("email:", createdEmail);
+
+  if (isToken) {
+    navigate("/login");
+  }
   const {
     register,
     handleSubmit,
@@ -19,6 +28,9 @@ const Register = () => {
     createUser(data.email, data.password)
       .then((result) => {
         update(data.name);
+        setCreatedEmail(data.email);
+
+        // logOut();
         setError("");
         console.log(result.user);
       })
@@ -57,7 +69,6 @@ const Register = () => {
               console.log(data);
               if (data.insertedId) {
                 swal("Wow!", "User created Successfully !!", "success");
-                navigate("/login");
               }
             });
         }
@@ -112,8 +123,8 @@ const Register = () => {
           <option disabled selected>
             Select your role
           </option>
-          <option>Buyer</option>
-          <option>Seller</option>
+          <option>buyer</option>
+          <option>seller</option>
         </select>
         <br />
         <input
