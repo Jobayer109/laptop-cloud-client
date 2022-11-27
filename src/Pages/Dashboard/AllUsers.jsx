@@ -10,13 +10,17 @@ const AllUsers = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/users`);
+      const res = await fetch(`http://localhost:5000/users`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("Token")}`,
+        },
+      });
       const data = await res.json();
       return data;
     },
   });
   if (isLoading) {
-    return;
+    return <progress className="progress w-full bg-green-500"></progress>;
   }
 
   const handleUpdate = (id) => {

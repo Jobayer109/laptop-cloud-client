@@ -1,8 +1,10 @@
 import React from "react";
+import { FaCheckCircle, FaHeart } from "react-icons/fa";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const Laptop = ({ laptop, setDetails }) => {
   const {
+    _id,
     img,
     location,
     name,
@@ -12,7 +14,25 @@ const Laptop = ({ laptop, setDetails }) => {
     seller_name,
     year_of_use,
     phone,
+    verified,
+    paid,
   } = laptop;
+  console.log(laptop);
+
+  const handleWishList = (id) => {
+    fetch(`http://localhost:5000/wishlist/${id}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ _id }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   return (
     <div className="flex items-center justify-around shadow-lg">
       <figure>
@@ -22,7 +42,10 @@ const Laptop = ({ laptop, setDetails }) => {
           </PhotoView>
         </PhotoProvider>
       </figure>
-      <div className="w-1/2">
+      <div className="w-1/2 relative">
+        <p onClick={() => handleWishList(_id)} className="absolute right-5">
+          <FaHeart className="text-red-600 text-2xl" />{" "}
+        </p>
         <h2 className="">{name}</h2>
         <div className="text-sm">
           <p>Resale Price: ${resale_price}</p>
@@ -31,16 +54,25 @@ const Laptop = ({ laptop, setDetails }) => {
           <p>Posted on: {posted_on}</p>
           <p>Years of use: {year_of_use} year</p>
           <p>Phone: {phone}</p>
-          <p>Seller's name: {seller_name}</p>
+          <p className="flex items-center">
+            Seller's name: {seller_name}{" "}
+            {verified ? <FaCheckCircle className="ml-2 text-blue-500" /> : " "}
+          </p>
         </div>
         <div className="card-actions lg:justify-end mt-5">
-          <label
-            onClick={() => setDetails(laptop)}
-            htmlFor="laptop-modal"
-            className=" btn border w-40 mb-6 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700 translate duration-300 ease-in"
-          >
-            Book Now
-          </label>
+          {paid === true ? (
+            <label className=" btn border w-40 mb-6 bg-red-600 text-white rounded-md font-semibold hover:bg-green-700 translate duration-300 ease-in ">
+              Sold out
+            </label>
+          ) : (
+            <label
+              onClick={() => setDetails(laptop)}
+              htmlFor="laptop-modal"
+              className=" btn border w-28 btn-sm mb-6 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700 translate duration-300 ease-in"
+            >
+              Book Now
+            </label>
+          )}
         </div>
       </div>
     </div>

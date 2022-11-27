@@ -12,8 +12,6 @@ const Register = () => {
   const [createdEmail, setCreatedEmail] = useState("");
   const navigate = useNavigate();
   const [isToken] = useToken(createdEmail);
-  // console.log("Token:", isToken);
-  // console.log("email:", createdEmail);
 
   if (isToken) {
     navigate("/login");
@@ -29,8 +27,7 @@ const Register = () => {
       .then((result) => {
         update(data.name);
         setCreatedEmail(data.email);
-
-        // logOut();
+        logOut();
         setError("");
         console.log(result.user);
       })

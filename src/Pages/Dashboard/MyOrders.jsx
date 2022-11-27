@@ -20,7 +20,7 @@ const MyOrders = () => {
   });
 
   if (isLoading) {
-    return <progress className="progress w-full"></progress>;
+    return <progress className="progress w-full bg-green-500"></progress>;
   }
 
   const handlePayment = () => {};
@@ -77,9 +77,9 @@ const MyOrders = () => {
       ) : (
         <div className="my-20 text-center">
           <img src={empty} alt="" className="h-40 w-[50%] mx-auto mb-10" />
-          <p className="text-2xl mb-6  font-bold ">Your Booking is Empty</p>
+          <p className="text-2xl mb-6  font-bold ">Booking not found</p>
           <Link to="/">
-            <button className="border text-sm w-60 bg-green-600 text-white px-2 py-2 rounded-md font-semibold  hover:bg-green-500 hover:border-green-500 translate duration-300 ease-in">
+            <button className="border text-sm w-60 bg-green-600 text-white px-2 py-2 rounded-md font-semibold  hover:bg-green-700 hover:border-green-500 translate duration-300 ease-in">
               Continue shopping
             </button>
           </Link>

@@ -13,7 +13,7 @@ const Categories = () => {
   });
 
   if (isLoading) {
-    return <progress className=" progress w-full"></progress>;
+    return <progress className="progress w-full bg-green-300"></progress>;
   }
 
   return (
@@ -21,14 +21,14 @@ const Categories = () => {
       <div className="flex w-[50%] mx-auto mt-16">
         <input
           type="search"
-          placeholder="Search laptop"
+          placeholder="Ex: Samsung"
           className="w-96 p-3 rounded-l-lg border border-green-500"
         />
         <button
           type="button"
           className="w- p-3 font rounded-r-lg bg-green-600 hover:bg-green-700 text-white"
         >
-          Subscribe
+          Search
         </button>
       </div>
       <h3 className="text-2xl mb-6  font-bold mt-10">

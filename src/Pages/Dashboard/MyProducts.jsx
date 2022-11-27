@@ -7,7 +7,6 @@ import { AuthContext } from "../../Contexts/AuthProvider";
 
 const MyProducts = () => {
   const { user } = useContext(AuthContext);
-  console.log(user?.email);
   const {
     data: products,
     isLoading,
@@ -21,12 +20,15 @@ const MyProducts = () => {
     },
   });
   if (isLoading) {
-    return <progress className="progress w-full"></progress>;
+    return <progress className="progress w-full bg-green-500"></progress>;
   }
 
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/myProducts/${id}`, {
       method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("Token")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -37,11 +39,21 @@ const MyProducts = () => {
       });
   };
 
+  const handleAdvertise = (id) => {
+    fetch(`http://localhost:5000/products/${id}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   return (
     <section>
       {products.length ? (
         <>
-          <div className="overflow-x-auto w-full">
+          <div className="overflow-x-auto w-full text-sm">
             <table className="table w-full">
               <thead>
                 <tr>
@@ -57,7 +69,7 @@ const MyProducts = () => {
               </thead>
               <tbody>
                 {products.map((product, i) => (
-                  <tr>
+                  <tr key={i}>
                     <th>{i + 1}</th>
                     <td>
                       <div className="avatar">
@@ -78,7 +90,21 @@ const MyProducts = () => {
                       </button>
                     </th>
                     <th>
-                      <button className="btn btn-primary text-white btn-xs">Advertise</button>
+                      {product.ads === "advertise" ? (
+                        <button
+                          onClick={() => handleAdvertise(product._id)}
+                          className="btn btn-success w-24 text-white btn-xs"
+                        >
+                          Advertised
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => handleAdvertise(product._id)}
+                          className="btn btn-primary w-24 text-white btn-xs"
+                        >
+                          Advertise
+                        </button>
+                      )}
                     </th>
                   </tr>
                 ))}
@@ -89,7 +115,7 @@ const MyProducts = () => {
       ) : (
         <div className="my-20 text-center">
           <img src={empty} alt="" className="h-40 w-[50%] mx-auto mb-10" />
-          <p className="text-2xl mb-6  font-bold ">No Products for Sale</p>
+          <p className="text-2xl mb-6  font-bold ">No Products found</p>
           <Link to="/">
             <button className="border text-sm w-60 bg-green-600 text-white px-2 py-2 rounded-md font-semibold  hover:bg-green-500 hover:border-green-500 translate duration-300 ease-in">
               Continue shopping

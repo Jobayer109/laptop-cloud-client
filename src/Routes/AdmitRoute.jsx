@@ -6,10 +6,9 @@ import useAdmin from "../Hooks/useAdmin";
 const AdmitRoute = ({ children }) => {
   const { loading, user } = useContext(AuthContext);
   const [isAdmin, isAdminLoading] = useAdmin(user?.email);
-  // const [isSeller, isSellerLoading] = useSeller(user?.email);
   const location = useLocation();
   if (loading || isAdminLoading) {
-    return <progress className="progress w-full"></progress>;
+    return <progress className="progress w-full bg-green-500"></progress>;
   }
 
   if (user?.email && isAdmin) {

@@ -13,7 +13,9 @@ const Header = () => {
 
   const handleSignOut = () => {
     logOut()
-      .then((result) => {})
+      .then((result) => {
+        localStorage.clear();
+      })
       .catch((error) => {});
   };
 
@@ -21,7 +23,7 @@ const Header = () => {
     <>
       <li>
         <Link
-          className="text-sm hover:border-b-2 pb-1 text-white  hover:text-black hover:border-green-400 hover:bg-green-100"
+          className="text-sm hover:border-b-2 pb-1 text-white hover:border-green-400 hover:text-white"
           to="/"
         >
           Home
@@ -33,7 +35,7 @@ const Header = () => {
           {" "}
           <li>
             <Link
-              className="text-sm hover:border-b-2 pb-1 text-white  hover:text-black hover:border-green-400 hover:bg-green-100"
+              className="text-sm hover:border-b-2 pb-1 text-white hover:border-green-400 hover:text-white"
               to="/dashboard"
             >
               {(isAdmin && "Admin Dashboard") ||
@@ -48,7 +50,7 @@ const Header = () => {
 
       <li>
         <Link
-          className="text-sm hover:border-b-2 pb-1 text-white hover:text-black  hover:border-green-400 hover:bg-green-100"
+          className="text-sm hover:border-b-2 pb-1 text-white hover:border-green-400 hover:text-white"
           to="/blogs"
         >
           Blogs
@@ -71,8 +73,8 @@ const Header = () => {
             {navItems}
           </ul>
         </div>
-        <Link>
-          <img src={logo} alt="" className="h-10" />
+        <Link to="/">
+          <img src={logo} alt="" className="lg:h-10 sm:h-8" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -83,14 +85,14 @@ const Header = () => {
           <Link to="/login">
             <button
               onClick={handleSignOut}
-              className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold hover:bg-green-700 hover:text-white translate duration-300 ease-in "
+              className="hidden lg:block border w-24 bg-white px-2 py-1.5 rounded-md font-semibold font-sans hover:bg-green-700 hover:text-white translate duration-300 ease-in "
             >
               Sign out
             </button>
           </Link>
         ) : (
           <Link to="/login">
-            <button className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold hover:bg-green-700  hover:text-white translate duration-300 ease-in">
+            <button className="border w-24 bg-white px-2 py-1.5 rounded-md font-semibold font-sans hover:bg-green-700  hover:text-white translate duration-300 ease-in">
               Sign in
             </button>
           </Link>

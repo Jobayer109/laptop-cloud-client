@@ -6,6 +6,7 @@ import AllUsers from "../Pages/Dashboard/AllUsers";
 import MyOrders from "../Pages/Dashboard/MyOrders";
 import MyProducts from "../Pages/Dashboard/MyProducts";
 import Payment from "../Pages/Dashboard/Payment";
+import Sellers from "../Pages/Dashboard/Sellers";
 import Home from "../Pages/Home/Home";
 import Laptops from "../Pages/Home/Laptops";
 import Login from "../Pages/Login/Login";
@@ -52,11 +53,7 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     errorElement: <ErrorPage />,
-    element: (
-      <PrivateRoute>
-        <DashboardLayout />
-      </PrivateRoute>
-    ),
+    element: <DashboardLayout />,
     children: [
       {
         path: "/dashboard",
@@ -65,10 +62,6 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myProducts",
         element: (
-          <AdmitRoute>
-            <MyProducts />
-          </AdmitRoute>
-        ) || (
           <SellerRoute>
             <MyProducts />
           </SellerRoute>
@@ -80,10 +73,6 @@ const router = createBrowserRouter([
           <SellerRoute>
             <AddProduct />
           </SellerRoute>
-        ) && (
-          <AdmitRoute>
-            <AddProduct />
-          </AdmitRoute>
         ),
       },
       {
@@ -91,6 +80,14 @@ const router = createBrowserRouter([
         element: (
           <AdmitRoute>
             <AllUsers />
+          </AdmitRoute>
+        ),
+      },
+      {
+        path: "/dashboard/sellers",
+        element: (
+          <AdmitRoute>
+            <Sellers />
           </AdmitRoute>
         ),
       },

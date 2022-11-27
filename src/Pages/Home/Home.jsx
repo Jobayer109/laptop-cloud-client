@@ -7,7 +7,7 @@ import Reviews from "./Reviews";
 
 const Home = () => {
   return (
-    <div className="lg:px-20">
+    <div className="px-20">
       <Banner />
       <Categories />
       <Advertises />
