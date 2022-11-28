@@ -5,7 +5,7 @@ const AllAdmin = () => {
   const { data: users, isLoading } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(`https://laptop-cloud-server.vercel.app/users`, {
+      const res = await fetch(`http://localhost:5000/users`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("Token")}`,
         },

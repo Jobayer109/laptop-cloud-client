@@ -14,14 +14,11 @@ const MyOrders = () => {
   } = useQuery({
     queryKey: ["orders", user?.email],
     queryFn: async () => {
-      const res = await fetch(
-        `https://laptop-cloud-server.vercel.app/myorders?email=${user?.email}`,
-        {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("Token")}`,
-          },
-        }
-      );
+      const res = await fetch(`http://localhost:5000/myorders?email=${user?.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("Token")}`,
+        },
+      });
       const data = await res.json();
       return data;
     },
@@ -32,7 +29,7 @@ const MyOrders = () => {
   }
 
   const handleDelete = (id) => {
-    fetch(`https://laptop-cloud-server.vercel.app/deleteOrder/${id}`, {
+    fetch(`http://localhost:5000/deleteOrder/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

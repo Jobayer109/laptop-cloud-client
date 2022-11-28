@@ -13,7 +13,7 @@ const CheckoutForm = ({ booked }) => {
   const elements = useElements();
 
   useEffect(() => {
-    fetch("https://laptop-cloud-server.vercel.app/create-payment-intent", {
+    fetch("http://localhost:5000/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +70,7 @@ const CheckoutForm = ({ booked }) => {
         price,
       };
       console.log(payment.bookingId);
-      fetch(`https://laptop-cloud-server.vercel.app/payments`, {
+      fetch(`http://localhost:5000/payments`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -80,18 +80,17 @@ const CheckoutForm = ({ booked }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
-            setSuccess("Congrats! Payment Successful");
-            setTransaction(paymentIntent.id);
-            setProcessing(false);
-            swal("Very nice!", "Payment Successful!", "success");
-            console.log(data);
-            // fetch(`https://laptop-cloud-server.vercel.app/paid`, {
-            //   method: "PUT",
-            // })
-            //   .then((res) => res.json())
-            //   .then((data) => {
-
-            //   });
+            fetch(`http://localhost:5000/paid`, {
+              method: "PUT",
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                setSuccess("Congrats! Payment Successful");
+                setTransaction(paymentIntent.id);
+                setProcessing(false);
+                swal("Very nice!", "Payment Successful!", "success");
+                console.log("Paid Status:", data);
+              });
           }
         });
     }

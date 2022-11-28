@@ -6,7 +6,7 @@ const Advertises = () => {
   const { data: advertises, isLoading } = useQuery({
     queryKey: ["advertises"],
     queryFn: async () => {
-      const res = await fetch(`https://laptop-cloud-server.vercel.app/advertise`);
+      const res = await fetch(`http://localhost:5000/advertise`);
       const data = await res.json();
       return data;
     },
@@ -17,7 +17,7 @@ const Advertises = () => {
   }
   return (
     <div className="mt-10">
-      {advertises.length ? (
+      {advertises?.length ? (
         <>
           <h3 className="text-2xl mb-6  font-bold mt-10">
             {" "}
@@ -31,7 +31,9 @@ const Advertises = () => {
       {advertises?.map((advertise) => {
         return (
           advertise.ads === "advertise" &&
-          !advertise.paid && <Advertise key={advertise._id} advertise={advertise}></Advertise>
+          !advertise.paid === true && (
+            <Advertise key={advertise._id} advertise={advertise}></Advertise>
+          )
         );
       })}
     </div>

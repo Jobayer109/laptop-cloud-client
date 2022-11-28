@@ -18,12 +18,12 @@ const DownloadApp = () => {
           <img
             src={appleStore}
             alt=""
-            className="sm:h-10 lg:h-16 sm:w-24 lg:w-36 sm:mt-2 border rounded-lg mr-2 bg-green-600 hover:-translate-y-2 duration-500 ease-in-out"
+            className="sm:h-10 lg:h-16 sm:w-24 lg:w-36 sm:mt-2 border rounded-lg mr-2 bg-green-600 hover:-translate-y-2 duration-500 ease-in-out "
           />
           <img
             src={playStore}
             alt=""
-            className="sm:h-10 lg:h-16 sm:w-24 lg:w-36 sm:mt-2 border rounded-lg mr-2 bg-green-600 hover:-translate-y-2 duration-500 ease-out"
+            className="sm:h-10 lg:h-16 sm:w-24 lg:w-36 sm:mt-2 border rounded-lg mr-2 bg-green-600 hover:-translate-y-2 duration-500 ease-out "
           />
         </div>
       </div>

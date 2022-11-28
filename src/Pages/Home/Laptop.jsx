@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCheckCircle, FaHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const Laptop = ({ laptop, setDetails }) => {
@@ -19,7 +19,7 @@ const Laptop = ({ laptop, setDetails }) => {
   } = laptop;
 
   const handleWishList = (id) => {
-    fetch(`https://laptop-cloud-server.vercel.app/wishlist/${id}`, {
+    fetch(`http://localhost:5000/wishlist/${id}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -41,7 +41,7 @@ const Laptop = ({ laptop, setDetails }) => {
           </PhotoView>
         </PhotoProvider>
       </figure>
-      <div className="w-1/2 relative">
+      <div className="w-1/2 relative ">
         <p onClick={() => handleWishList(_id)} className="absolute right-5">
           <FaHeart className="text-red-600 text-2xl" />{" "}
         </p>
@@ -55,7 +55,11 @@ const Laptop = ({ laptop, setDetails }) => {
           <p>Phone: {phone}</p>
           <p className="flex items-center">
             Seller's name: {seller_name}{" "}
-            {verified ? <FaCheckCircle className="ml-2 text-blue-500" /> : " "}
+            {verified ? (
+              <input type="checkbox" checked className="checkbox checkbox-info ml-2 h-4 w-4" />
+            ) : (
+              " "
+            )}
           </p>
         </div>
         <div className="card-actions lg:justify-end mt-5">
