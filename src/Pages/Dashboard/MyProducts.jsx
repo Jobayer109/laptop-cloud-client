@@ -14,9 +14,12 @@ const MyProducts = () => {
   } = useQuery({
     queryKey: ["products", user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/myProducts?email=${user?.email}`, {
-        authorization: `Bearer ${localStorage.getItem("Token")}`,
-      });
+      const res = await fetch(
+        `https://laptop-cloud-server.vercel.app/myProducts?email=${user?.email}`,
+        {
+          authorization: `Bearer ${localStorage.getItem("Token")}`,
+        }
+      );
       const data = await res.json();
       return data;
     },
@@ -26,7 +29,7 @@ const MyProducts = () => {
   }
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/myProducts/${id}`, {
+    fetch(`https://laptop-cloud-server.vercel.app/myProducts/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("Token")}`,
@@ -42,7 +45,7 @@ const MyProducts = () => {
   };
 
   const handleAdvertise = (id) => {
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`https://laptop-cloud-server.vercel.app/products/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
