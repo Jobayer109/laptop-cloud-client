@@ -44,8 +44,7 @@ const router = createBrowserRouter([
             <Laptops />
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`https://laptop-cloud-server.vercel.app/category/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
       },
       {
         path: "blogs",
@@ -109,7 +108,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment/:id",
         element: <Payment />,
-        loader: ({ params }) => fetch(`https://laptop-cloud-server.vercel.app/orders/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/orders/${params.id}`),
       },
     ],
   },

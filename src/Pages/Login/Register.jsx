@@ -2,7 +2,6 @@ import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import swal from "sweetalert";
 import google from "../../assets/icons/google.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
 import useToken from "../../Hooks/useToken";
@@ -17,7 +16,7 @@ const Register = () => {
   console.log(createdEmail);
 
   if (isToken) {
-    navigate("/login");
+    navigate("/");
   }
   const {
     register,
@@ -28,8 +27,8 @@ const Register = () => {
   const handleRegister = (data) => {
     createUser(data.email, data.password)
       .then((result) => {
-        update(data.name);
         setCreatedEmail(data.email);
+        update(data.name);
         setError("");
         console.log(result.user);
       })
@@ -56,7 +55,7 @@ const Register = () => {
             email: data.email,
             role: data.role,
           };
-          fetch(`https://laptop-cloud-server.vercel.app/users`, {
+          fetch(`http://localhost:5000/users`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -66,9 +65,6 @@ const Register = () => {
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
-              if (data.insertedId) {
-                swal("Wow!", "User created Successfully !!", "success");
-              }
             });
         }
       });
@@ -82,7 +78,7 @@ const Register = () => {
           user_name: result.user?.displayName,
           role: "buyer",
         };
-        fetch(`https://laptop-cloud-server.vercel.app/users`, {
+        fetch(`http://localhost:5000/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -91,11 +87,9 @@ const Register = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.insertedId) {
-              console.log(result.user?.email);
-              setCreatedEmail(result.user?.email);
-              navigate("/");
-            }
+            console.log(result.user.email);
+            setCreatedEmail(result.user.email);
+            navigate("/");
           });
       })
       .catch((error) => console.log(error.message));

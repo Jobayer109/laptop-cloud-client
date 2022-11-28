@@ -14,12 +14,9 @@ const MyProducts = () => {
   } = useQuery({
     queryKey: ["products", user?.email],
     queryFn: async () => {
-      const res = await fetch(
-        `https://laptop-cloud-server.vercel.app/myProducts?email=${user?.email}`,
-        {
-          authorization: `Bearer ${localStorage.getItem("Token")}`,
-        }
-      );
+      const res = await fetch(`http://localhost:5000/myProducts?email=${user?.email}`, {
+        authorization: `Bearer ${localStorage.getItem("Token")}`,
+      });
       const data = await res.json();
       return data;
     },
@@ -29,7 +26,7 @@ const MyProducts = () => {
   }
 
   const handleDelete = (id) => {
-    fetch(`https://laptop-cloud-server.vercel.app/myProducts/${id}`, {
+    fetch(`http://localhost:5000/myProducts/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("Token")}`,
@@ -45,7 +42,7 @@ const MyProducts = () => {
   };
 
   const handleAdvertise = (id) => {
-    fetch(`https://laptop-cloud-server.vercel.app/products/${id}`, {
+    fetch(`http://localhost:5000/products/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -60,6 +57,7 @@ const MyProducts = () => {
       {products?.length ? (
         <>
           <div className="overflow-x-auto w-full text-sm">
+            <h3 className="text-2xl font-bold mb-3">My Products</h3>
             <table className="table w-full">
               <thead>
                 <tr>
@@ -68,8 +66,8 @@ const MyProducts = () => {
                   <th>Name</th>
                   <th>Price</th>
                   <th>Status</th>
-                  <th>Delete</th>
                   <th>Advertise</th>
+                  <th>Delete</th>
                   <th></th>
                 </tr>
               </thead>

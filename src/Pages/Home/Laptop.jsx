@@ -18,7 +18,7 @@ const Laptop = ({ laptop, setDetails }) => {
   } = laptop;
 
   const handleWishList = () => {
-    fetch(`https://laptop-cloud-server.vercel.app/wishlist`, {
+    fetch(`http://localhost:5000/wishlist`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

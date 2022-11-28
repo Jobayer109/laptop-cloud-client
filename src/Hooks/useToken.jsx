@@ -5,13 +5,11 @@ const useToken = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`https://laptop-cloud-server.vercel.app/jwt?email=${email}`)
+      fetch(`http://localhost:5000/jwt?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
-          if (data.token) {
-            localStorage.setItem("Token", data.token);
-            setIsToken(data.token);
-          }
+          localStorage.setItem("Token", data.token);
+          setIsToken(data.token);
         });
     }
   }, [email]);
