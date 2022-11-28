@@ -8,9 +8,10 @@ const useToken = (email) => {
       fetch(`http://localhost:5000/jwt?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
-          setIsToken(data.token);
-          localStorage.setItem("Token", data.token);
-          console.log(data);
+          if (data.token) {
+            localStorage.setItem("Token", data.token);
+            setIsToken(data.token);
+          }
         });
     }
   }, [email]);

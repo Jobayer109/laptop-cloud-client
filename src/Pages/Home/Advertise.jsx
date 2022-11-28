@@ -1,4 +1,4 @@
-import { FaCheckCircle, FaHeart } from "react-icons/fa";
+import { FaCheckCircle } from "react-icons/fa";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const Advertise = ({ advertise }) => {
@@ -24,10 +24,7 @@ const Advertise = ({ advertise }) => {
             </PhotoView>
           </PhotoProvider>
         </figure>
-        <div className="w-1/2 relative">
-          <p className="absolute right-5">
-            <FaHeart className="text-red-600 text-2xl" />{" "}
-          </p>
+        <div className="w-1/2">
           <h2 className="">{name}</h2>
           <div className="text-sm">
             <p>Resale Price: ${resale_price}</p>

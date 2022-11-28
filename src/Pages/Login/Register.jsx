@@ -1,3 +1,4 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,11 +8,13 @@ import { AuthContext } from "../../Contexts/AuthProvider";
 import useToken from "../../Hooks/useToken";
 
 const Register = () => {
-  const { createUser, update, logOut } = useContext(AuthContext);
+  const { createUser, update, googleSignIn } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
   const [error, setError] = useState("");
   const [createdEmail, setCreatedEmail] = useState("");
   const navigate = useNavigate();
   const [isToken] = useToken(createdEmail);
+  console.log(createdEmail);
 
   if (isToken) {
     navigate("/login");
@@ -27,7 +30,6 @@ const Register = () => {
       .then((result) => {
         update(data.name);
         setCreatedEmail(data.email);
-        logOut();
         setError("");
         console.log(result.user);
       })
@@ -70,6 +72,33 @@ const Register = () => {
             });
         }
       });
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn(googleProvider)
+      .then((result) => {
+        const googler = {
+          email: result.user?.email,
+          user_name: result.user?.displayName,
+          role: "buyer",
+        };
+        fetch(`http://localhost:5000/users`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(googler),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              console.log(result.user?.email);
+              setCreatedEmail(result.user?.email);
+              navigate("/");
+            }
+          });
+      })
+      .catch((error) => console.log(error.message));
   };
 
   return (
@@ -138,7 +167,10 @@ const Register = () => {
         />
         <div className="w-[27%] mx-auto cursor-pointer ">
           <div className="divider  text-xs text-green-600">OR</div>
-          <div className="flex items-center border border-green-400 rounded-full p-1 hover:bg-green-200">
+          <div
+            onClick={handleGoogleSignIn}
+            className="flex items-center border border-green-400 rounded-full p-1 hover:bg-green-200"
+          >
             <img src={google} alt="" className="h-8" />
             <input
               type="button"

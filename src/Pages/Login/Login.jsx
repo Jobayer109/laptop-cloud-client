@@ -8,17 +8,18 @@ import useToken from "../../Hooks/useToken";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { user, signInUser, googleSignIn } = useContext(AuthContext);
+  const { signInUser, googleSignIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  const [logedInEmail, setLogedInEmail] = useState("");
+  const [isToken] = useToken(logedInEmail);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [isToken] = useToken(user?.email);
 
   if (isToken) {
     navigate(from, { replace: true });
@@ -27,6 +28,7 @@ const Login = () => {
   const handleSignIn = (data) => {
     signInUser(data.email, data.password)
       .then((result) => {
+        setLogedInEmail(data.email);
         setError("");
         console.log(result.user);
       })
@@ -38,6 +40,7 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     googleSignIn(googleProvider)
       .then((result) => {
+        setLogedInEmail(result.user?.email);
         console.log(result.user);
       })
       .catch((error) => {

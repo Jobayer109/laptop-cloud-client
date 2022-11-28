@@ -70,7 +70,7 @@ const MyProducts = () => {
                   <th></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="border rounded-xl">
                 {products?.map((product, i) => (
                   <tr key={i}>
                     <th>{i + 1}</th>
@@ -83,16 +83,15 @@ const MyProducts = () => {
                     </td>
                     <td>{product.name}</td>
                     <td>$ {product.resale_price}</td>
-                    <td className="text-green-500">Available</td>
-                    <th>
-                      <button
-                        onClick={() => handleDelete(product._id)}
-                        className="btn btn-error text-white btn-xs"
-                      >
-                        Delete
-                      </button>
-                    </th>
-                    <th>
+                    <td>
+                      {product.paid === true ? (
+                        <p className="text-red-600 font-bold">sold out</p>
+                      ) : (
+                        <p className="text-green-600">Available</p>
+                      )}
+                    </td>
+
+                    <td>
                       {product?.ads === "advertise" ? (
                         <button
                           onClick={() => handleAdvertise(product._id)}
@@ -103,12 +102,20 @@ const MyProducts = () => {
                       ) : (
                         <button
                           onClick={() => handleAdvertise(product._id)}
-                          className="btn btn-primary w-24 text-white btn-xs"
+                          className="btn btn-outline w-24 btn-xs"
                         >
                           Advertise
                         </button>
                       )}
-                    </th>
+                    </td>
+                    <td>
+                      <button
+                        onClick={() => handleDelete(product._id)}
+                        className="btn btn-error text-white btn-xs"
+                      >
+                        Delete
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>

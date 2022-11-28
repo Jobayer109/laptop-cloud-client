@@ -58,7 +58,7 @@ const AllUsers = () => {
           <div>
             <h3 className="text-2xl font-bold mb-3">All Buyers</h3>
             <table className="table w-full">
-              <thead>
+              <thead className="border">
                 <tr>
                   <th></th>
                   <th>Name</th>
@@ -68,12 +68,12 @@ const AllUsers = () => {
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="border rounded-xl">
                 {users?.map((user, i) => {
                   return (
                     user?.role === "buyer" && (
                       <tr key={i}>
-                        <th>{i + 1}</th>
+                        <th></th>
                         <td>{user.user_name}</td>
                         <td>{user.email}</td>
                         <td>{user.role}</td>

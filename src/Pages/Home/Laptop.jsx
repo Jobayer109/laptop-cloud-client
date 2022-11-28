@@ -4,7 +4,6 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const Laptop = ({ laptop, setDetails }) => {
   const {
-    _id,
     img,
     location,
     name,
@@ -18,13 +17,13 @@ const Laptop = ({ laptop, setDetails }) => {
     paid,
   } = laptop;
 
-  const handleWishList = (id) => {
-    fetch(`http://localhost:5000/wishlist/${id}`, {
+  const handleWishList = () => {
+    fetch(`http://localhost:5000/wishlist`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ _id }),
+      body: JSON.stringify({ laptop }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -42,19 +41,32 @@ const Laptop = ({ laptop, setDetails }) => {
         </PhotoProvider>
       </figure>
       <div className="w-1/2 relative ">
-        <p onClick={() => handleWishList(_id)} className="absolute right-5">
-          <FaHeart className="text-red-600 text-2xl" />{" "}
+        <p className="absolute right-5">
+          <FaHeart onClick={() => handleWishList(laptop)} className="text-red-600 text-2xl" />{" "}
         </p>
-        <h2 className="">{name}</h2>
+        <h2 className="text-xl font-bold">{name}</h2>
         <div className="text-sm">
-          <p>Resale Price: ${resale_price}</p>
-          <p>Original Price: ${original_price}</p>
-          <p>Location: {location}</p>
-          <p>Posted on: {posted_on}</p>
-          <p>Years of use: {year_of_use} year</p>
-          <p>Phone: {phone}</p>
+          <p>
+            <span className="font-semibold  text-green-600">Resale Price:</span> ${resale_price}
+          </p>
+          <p>
+            <span className="font-semibold text-green-600">Original Price:</span> ${original_price}
+          </p>
+          <p>
+            <span className="font-semibold text-green-600">Location</span>: {location}
+          </p>
+          <p>
+            <span className="font-semibold text-green-600">Posted on:</span> {posted_on}
+          </p>
+          <p>
+            <span className="font-semibold text-green-600">Years of use:</span> {year_of_use} year
+          </p>
+          <p>
+            <span className="font-semibold text-green-600">Phone</span>: {phone}
+          </p>
           <p className="flex items-center">
-            Seller's name: {seller_name}{" "}
+            <span className="font-semibold text-green-600"> Seller's name: </span> {""}{" "}
+            {seller_name}{" "}
             {verified ? (
               <input type="checkbox" checked className="checkbox checkbox-info ml-2 h-4 w-4" />
             ) : (

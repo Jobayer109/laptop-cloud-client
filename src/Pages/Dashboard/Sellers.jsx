@@ -59,7 +59,7 @@ const Sellers = () => {
                 <th></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="border rounded-xl">
               {sellers?.map((seller, i) => {
                 return (
                   seller?.role === "seller" && (

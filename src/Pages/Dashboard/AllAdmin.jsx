@@ -31,7 +31,7 @@ const AllAdmin = () => {
               <th>Role</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="border rounded-xl">
             {users?.map((user, i) => {
               return (
                 user?.role === "admin" && (

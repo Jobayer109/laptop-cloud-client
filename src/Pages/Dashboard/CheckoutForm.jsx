@@ -80,17 +80,10 @@ const CheckoutForm = ({ booked }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
-            fetch(`http://localhost:5000/paid`, {
-              method: "PUT",
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                setSuccess("Congrats! Payment Successful");
-                setTransaction(paymentIntent.id);
-                setProcessing(false);
-                swal("Very nice!", "Payment Successful!", "success");
-                console.log("Paid Status:", data);
-              });
+            setSuccess("Congrats! Payment Successful");
+            setTransaction(paymentIntent.id);
+            setProcessing(false);
+            swal("Very nice!", "Payment Successful!", "success");
           }
         });
     }
@@ -114,7 +107,6 @@ const CheckoutForm = ({ booked }) => {
       <div>
         {success && (
           <>
-            {" "}
             <p className="text-green-600">
               <small>{success}</small>
             </p>{" "}

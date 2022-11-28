@@ -16,7 +16,7 @@ const Header = () => {
     logOut()
       .then((result) => {
         navigate("/login");
-        window.localStorage.removeItem("Token");
+        localStorage.removeItem("Token");
       })
       .catch((error) => {});
   };
@@ -68,7 +68,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={1}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52"
+            className="menu menu-compact dropdown-content bg-black mt-3 p-2 shadow rounded-box w-52"
           >
             {navItems}
           </ul>
@@ -108,7 +108,7 @@ const Header = () => {
         </label>
         <ul
           tabIndex={2}
-          className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52"
+          className="menu menu-compact dropdown-content bg-black mt-3 p-2 shadow rounded-box w-52"
         >
           {navItems}
         </ul>

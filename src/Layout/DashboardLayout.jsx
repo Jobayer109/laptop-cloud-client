@@ -27,6 +27,11 @@ const DashboardLayout = () => {
                 My Orders
               </Link>
             </li>
+            <li>
+              <Link className="border-b mb-2 text-sm active:bg-green-700" to="/dashboard/wishList">
+                My Wishlist
+              </Link>
+            </li>
 
             {isAdmin && (
               <div>

@@ -63,7 +63,7 @@ const MyOrders = () => {
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="border rounded-xl">
                 {orders?.map((order, i) => (
                   <tr key={order._id}>
                     <th>{i + 1}</th>

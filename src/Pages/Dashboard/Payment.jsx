@@ -21,7 +21,7 @@ const Payment = () => {
         </h3>
       </div>
 
-      <div className="card w-96 border mt-10 h-60 bg-green-50">
+      <div className="card w-96 border border-green-500 mt-10 h-60 bg-white">
         <div className="card-body">
           <div>
             <Elements stripe={stripePromise}>
