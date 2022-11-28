@@ -96,7 +96,7 @@ const Sellers = () => {
                             onClick={() => handleVerified(seller.email)}
                             className="btn btn-outline w-20 btn-xs"
                           >
-                            Verify
+                            unverified
                           </button>
                         )}
                       </th>
