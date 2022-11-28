@@ -14,7 +14,9 @@ const MyProducts = () => {
   } = useQuery({
     queryKey: ["products", user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/myProducts?email=${user?.email}`);
+      const res = await fetch(`http://localhost:5000/myProducts?email=${user?.email}`, {
+        authorization: `Bearer ${localStorage.getItem("Token")}`,
+      });
       const data = await res.json();
       return data;
     },
@@ -45,13 +47,14 @@ const MyProducts = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        refetch();
         console.log(data);
       });
   };
 
   return (
     <section>
-      {products.length ? (
+      {products?.length ? (
         <>
           <div className="overflow-x-auto w-full text-sm">
             <table className="table w-full">
@@ -68,7 +71,7 @@ const MyProducts = () => {
                 </tr>
               </thead>
               <tbody>
-                {products.map((product, i) => (
+                {products?.map((product, i) => (
                   <tr key={i}>
                     <th>{i + 1}</th>
                     <td>
@@ -90,7 +93,7 @@ const MyProducts = () => {
                       </button>
                     </th>
                     <th>
-                      {product.ads === "advertise" ? (
+                      {product?.ads === "advertise" ? (
                         <button
                           onClick={() => handleAdvertise(product._id)}
                           className="btn btn-success w-24 text-white btn-xs"

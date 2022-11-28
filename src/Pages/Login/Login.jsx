@@ -25,7 +25,6 @@ const Login = () => {
   }
 
   const handleSignIn = (data) => {
-    console.log(data);
     signInUser(data.email, data.password)
       .then((result) => {
         setError("");

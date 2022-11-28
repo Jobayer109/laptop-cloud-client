@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { FaBars } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
 import useAdmin from "../../Hooks/useAdmin";
@@ -10,11 +10,13 @@ const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
   const [isSeller] = useSeller(user?.email);
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
     logOut()
       .then((result) => {
-        localStorage.clear();
+        navigate("/login");
+        window.localStorage.removeItem("Token");
       })
       .catch((error) => {});
   };
@@ -41,8 +43,6 @@ const Header = () => {
               {(isAdmin && "Admin Dashboard") ||
                 (isSeller && "Seller Dashboard") ||
                 (user?.email && "Dashboard")}
-              {/* {isSeller && user?.email ? "Seller Dashboard" : ""} */}
-              {/* {user?.email ? "Dashboard" : ""} */}
             </Link>
           </li>
         </>

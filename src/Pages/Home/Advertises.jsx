@@ -31,7 +31,7 @@ const Advertises = () => {
       {advertises?.map((advertise) => {
         return (
           advertise.ads === "advertise" &&
-          !advertise.paid && <Advertise advertise={advertise}></Advertise>
+          !advertise.paid && <Advertise key={advertise._id} advertise={advertise}></Advertise>
         );
       })}
     </div>

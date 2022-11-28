@@ -13,7 +13,6 @@ const Advertise = ({ advertise }) => {
     year_of_use,
     phone,
   } = advertise;
-  console.log(advertise);
 
   return (
     <section>

@@ -1,12 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 import empty from "../../assets/images/empty.svg";
 import { AuthContext } from "../../Contexts/AuthProvider";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
-  const { data: orders, isLoading } = useQuery({
+  const {
+    data: orders,
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["orders", user?.email],
     queryFn: async () => {
       const res = await fetch(`http://localhost:5000/myorders?email=${user?.email}`, {
@@ -23,7 +28,23 @@ const MyOrders = () => {
     return <progress className="progress w-full bg-green-500"></progress>;
   }
 
-  const handlePayment = () => {};
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/deleteOrder/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const confirmed = window.confirm("Are sure want to Delete");
+        if (confirmed) {
+          if (data.deletedCount) {
+            refetch();
+            swal("Very nice!", "Booking Deleted Successful!", "success");
+          }
+        }
+
+        console.log(data);
+      });
+  };
 
   return (
     <section>
@@ -38,6 +59,7 @@ const MyOrders = () => {
                   <th>Avatar</th>
                   <th>Name</th>
                   <th>Price</th>
+                  <th>Delete</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -54,17 +76,20 @@ const MyOrders = () => {
                     </td>
                     <td>{order.laptopName}</td>
                     <td>$ {order.price}</td>
+                    <td>
+                      <button
+                        onClick={() => handleDelete(order._id)}
+                        className="btn btn-error text-white w-16 btn-sm"
+                      >
+                        Delete
+                      </button>
+                    </td>
                     <th>
                       {order?.price && order?.paid ? (
                         <button className="btn bg-green-600 text-white btn-sm">Paid</button>
                       ) : (
                         <Link to={`/dashboard/payment/${order._id}`}>
-                          <button
-                            onClick={() => handlePayment(order._id)}
-                            className="btn btn-warning w-16 btn-sm"
-                          >
-                            Pay
-                          </button>
+                          <button className="btn btn-warning w-16 btn-sm">Pay</button>
                         </Link>
                       )}
                     </th>

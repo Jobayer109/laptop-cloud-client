@@ -17,7 +17,6 @@ const Laptop = ({ laptop, setDetails }) => {
     verified,
     paid,
   } = laptop;
-  console.log(laptop);
 
   const handleWishList = (id) => {
     fetch(`http://localhost:5000/wishlist/${id}`, {
@@ -61,7 +60,7 @@ const Laptop = ({ laptop, setDetails }) => {
         </div>
         <div className="card-actions lg:justify-end mt-5">
           {paid === true ? (
-            <label className=" btn border w-40 mb-6 bg-red-600 text-white rounded-md font-semibold hover:bg-green-700 translate duration-300 ease-in ">
+            <label className=" btn border w-28 btn-sm mb-6 bg-red-600 hover:bg-red-600 text-white rounded-md font-semibold  translate duration-300 ease-in ">
               Sold out
             </label>
           ) : (

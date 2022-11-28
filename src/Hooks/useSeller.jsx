@@ -6,7 +6,11 @@ const useSeller = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:5000/users/seller/${email}`)
+      fetch(`http://localhost:5000/users/seller/${email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("Token")}`,
+        },
+      })
         .then((res) => res.json())
         .then((data) => {
           setIsSeller(data.isSeller);

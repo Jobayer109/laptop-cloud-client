@@ -32,7 +32,7 @@ const DashboardLayout = () => {
               <div>
                 <li>
                   <Link className="border-b mb-2 text-sm active:bg-green-700" to="/dashboard/users">
-                    All Users
+                    Buyers
                   </Link>
                 </li>
                 <li>
@@ -41,6 +41,14 @@ const DashboardLayout = () => {
                     to="/dashboard/sellers"
                   >
                     Sellers
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="border-b mb-2 text-sm active:bg-green-700"
+                    to="/dashboard/allAdmin"
+                  >
+                    Admins
                   </Link>
                 </li>
               </div>
