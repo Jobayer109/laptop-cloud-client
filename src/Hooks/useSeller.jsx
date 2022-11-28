@@ -6,7 +6,7 @@ const useSeller = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:5000/users/seller/${email}`, {
+      fetch(`https://laptop-cloud-server.vercel.app/users/seller/${email}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("Token")}`,
         },

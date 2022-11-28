@@ -54,7 +54,7 @@ const Register = () => {
             email: data.email,
             role: data.role,
           };
-          fetch(`http://localhost:5000/users`, {
+          fetch(`https://laptop-cloud-server.vercel.app/users`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
