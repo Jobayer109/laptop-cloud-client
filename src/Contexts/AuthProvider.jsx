@@ -19,22 +19,26 @@ const AuthProvider = ({ children }) => {
 
   // create user with email and password
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // Sign in user with email and password
   const signInUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // Google sign in
 
   const googleSignIn = (googleProvider) => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   // update user profile
   const update = (name, photoURL) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photoURL,
@@ -54,7 +58,7 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     });
     return () => {
-      return unSubscribe();
+      unSubscribe();
     };
   }, []);
 

@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import google from "../../assets/icons/google.png";
@@ -21,9 +21,11 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  if (isToken) {
-    navigate(from, { replace: true });
-  }
+  useEffect(() => {
+    if (isToken) {
+      navigate(from, { replace: true });
+    }
+  }, [isToken, from, navigate]);
 
   const handleSignIn = (data) => {
     signInUser(data.email, data.password)

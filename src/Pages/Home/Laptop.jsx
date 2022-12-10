@@ -17,19 +17,19 @@ const Laptop = ({ laptop, setDetails }) => {
     paid,
   } = laptop;
 
-  const handleWishList = () => {
-    fetch(`https://laptop-cloud-server.vercel.app/wishlist`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ laptop }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-  };
+  // const handleWishList = () => {
+  //   fetch(`https://laptop-cloud-server.vercel.app/wishlist`, {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify({ laptop }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //     });
+  // };
 
   return (
     <div className="flex items-center justify-around shadow-lg">
@@ -42,7 +42,7 @@ const Laptop = ({ laptop, setDetails }) => {
       </figure>
       <div className="w-1/2 relative ">
         <p className="absolute right-5">
-          <FaHeart onClick={() => handleWishList(laptop)} className="text-red-600 text-2xl" />{" "}
+          <FaHeart className="text-red-600 text-2xl" />{" "}
         </p>
         <h2 className="text-xl font-bold">{name}</h2>
         <div className="text-sm">
