@@ -10,11 +10,10 @@ const Laptops = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-y-10 px-20 mt-10 mb-24">
+      <div className=" px-20 mt-10 mb-24">
         {laptops.length ? (
           <>
             <h3 className="text-2xl mb-6  font-bold">
-              {" "}
               <span className="text-3xl text-green-600 font-bold">A</span>vailable Laptops:{" "}
               {laptops.length}
             </h3>
@@ -30,9 +29,12 @@ const Laptops = () => {
             </Link>
           </div>
         )}
-        {laptops?.map((laptop) => (
-          <Laptop key={laptop._id} laptop={laptop} setDetails={setDetails}></Laptop>
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6">
+          {" "}
+          {laptops?.map((laptop) => (
+            <Laptop key={laptop._id} laptop={laptop} setDetails={setDetails}></Laptop>
+          ))}
+        </div>
       </div>
       {details && <BookingModal details={details} setDetails={setDetails}></BookingModal>}
     </div>

@@ -10,6 +10,7 @@ import MyWishlist from "../Pages/Dashboard/MyWishlist";
 import Payment from "../Pages/Dashboard/Payment";
 import Sellers from "../Pages/Dashboard/Sellers";
 import Home from "../Pages/Home/Home";
+import LaptopDetails from "../Pages/Home/LaptopDetails";
 import Laptops from "../Pages/Home/Laptops";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
@@ -44,8 +45,12 @@ const router = createBrowserRouter([
             <Laptops />
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`https://laptop-cloud-server.vercel.app/category/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
+      },
+      {
+        path: "laptop/:id",
+        element: <LaptopDetails></LaptopDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/laptop/${params.id}`),
       },
       {
         path: "blogs",
@@ -109,7 +114,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment/:id",
         element: <Payment />,
-        loader: ({ params }) => fetch(`https://laptop-cloud-server.vercel.app/orders/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/orders/${params.id}`),
       },
     ],
   },

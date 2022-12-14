@@ -12,7 +12,7 @@ const AllUsers = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(`https://laptop-cloud-server.vercel.app/users`, {
+      const res = await fetch(`http://localhost:5000/users`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("Token")}`,
         },
@@ -26,7 +26,7 @@ const AllUsers = () => {
   }
 
   const handleUpdate = (id) => {
-    fetch(`https://laptop-cloud-server.vercel.app/users/admin/${id}`, {
+    fetch(`http://localhost:5000/users/admin/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -39,7 +39,7 @@ const AllUsers = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`https://laptop-cloud-server.vercel.app/users/${id}`, {
+    fetch(`http://localhost:5000/users/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
