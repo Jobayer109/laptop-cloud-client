@@ -18,7 +18,7 @@ const Categories = () => {
 
   return (
     <section>
-      <div className="flex w-[50%] mx-auto mt-16">
+      <div className="flex flex-wrap w-[50%] mx-auto mt-16">
         <input
           type="search"
           placeholder="Ex: Samsung"

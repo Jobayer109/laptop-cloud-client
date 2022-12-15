@@ -3,7 +3,7 @@ import React from "react";
 import Advertise from "./Advertise";
 
 const Advertises = () => {
-  const { data: advertises, isLoading } = useQuery({
+  const { data: advertises } = useQuery({
     queryKey: ["advertises"],
     queryFn: async () => {
       const res = await fetch(`http://localhost:5000/advertise`);

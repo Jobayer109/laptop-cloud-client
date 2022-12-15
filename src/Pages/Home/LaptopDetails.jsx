@@ -26,7 +26,6 @@ const LaptopDetails = () => {
     year_of_use,
     phone,
     verified,
-    paid,
     description,
     condition,
   } = detail;
@@ -46,7 +45,7 @@ const LaptopDetails = () => {
             </div>
             <div className="flex items-center justify-between">
               <FaShareAlt className="mr-4 cursor-pointer" />
-              <FaHeart className="text-xl mr-4 cursor-pointer" />
+              <FaHeart className="text-xl mr-4 cursor-pointer text-red-400" />
             </div>
           </div>
           <PhotoProvider>
@@ -99,7 +98,7 @@ const LaptopDetails = () => {
                 <p className="font-bold ">
                   <span className="text-gray-400">For sale by</span> {seller_name}
                 </p>{" "}
-                <FaAward />
+                <FaAward className="text-red-600  text-2xl" />
               </div>
             ) : (
               <p className="font-bold border p-3 bg-green-50">
@@ -109,22 +108,22 @@ const LaptopDetails = () => {
           </div>
           <div className=" flex items-center bg-green-50 font-bold border p-3 mt-2">
             <p>Chat</p>
-            <FaComments className="ml-4" />
+            <FaComments className="ml-4 text-blue-400" />
           </div>
           <div className="border mt-2 p-3">
             <div className="flex items-center ">
-              <FaExclamationTriangle className="mr-3" />
+              <FaExclamationTriangle className="mr-3 text-red-500" />
               <h3 className="font-bold">Safety Tips</h3>
             </div>
-            <div className="flex items-center">
-              <FaHandPointRight className="mr-2 text-xs" />
+            <div className="flex items-center text-md">
+              <FaHandPointRight className="mr-2 text-xs text-gray-300" />
               <p> Meet in a safe & public place </p>
             </div>
-            <div className="flex items-center">
-              <FaHandPointRight className="mr-2 text-xs" />
+            <div className="flex items-center text-md">
+              <FaHandPointRight className="mr-2 text-xs text-gray-300" />
               <p>Do not pay in advance</p>
             </div>
-            <Link to="" className="border bg-green-100 rounded-full p-">
+            <Link to="" className="border bg-green-100 rounded-full">
               See all safety tips
             </Link>
           </div>

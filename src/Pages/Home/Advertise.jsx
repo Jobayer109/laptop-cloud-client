@@ -1,22 +1,13 @@
 import { Link } from "react-router-dom";
 
 const Advertise = ({ advertise }) => {
-  const {
-    _id,
-    img,
-    location,
-    name,
-    original_price,
-    posted_on,
-    resale_price,
-    seller_name,
-    year_of_use,
-    phone,
-    description,
-  } = advertise;
+  const { _id, img, location, name, posted_on } = advertise;
 
   return (
-    <section card className=" border rounded-md py-3">
+    <section
+      card
+      className=" border rounded-md py-3 shadow-md hover:shadow-xl hover:duration-500 ease-out"
+    >
       <Link
         to={`/laptop/${_id}`}
         className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900"

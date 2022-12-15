@@ -2,53 +2,170 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div className="w-[80%] mx-auto my-20">
-      <div className="flex shadow-md gap-6 rounded-lg overflow-hidden divide-x bg-gray-900 text-gray-100 divide-gray-700">
-        <div className="flex flex-1 flex-col p-4 border-l-8 border-green-600">
-          <span className="text-2xl">
-            What are the different ways to manage a state in a React application?
-          </span>
-          <span className="text-lg mt-3 dark:text-gray-400">
-            A state of React application is manageable some different ways. There are Four Kinds of
-            React State to Manage Local state. Global state. Server state. URL state.
-          </span>
+    <section className="">
+      <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
+        <a
+          rel="noopener noreferrer"
+          href="#"
+          className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 "
+        >
+          <img
+            src="https://source.unsplash.com/random/480x360"
+            alt=""
+            className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 "
+          />
+          <div className="p-6 space-y-2 lg:col-span-5">
+            <h3 className="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">
+              Noster tincidunt reprimique ad pro
+            </h3>
+            <span className="text-xs ">February 19, 2021</span>
+            <p>
+              Ei delenit sensibus liberavisse pri. Quod suscipit no nam. Est in graece fuisset, eos
+              affert putent doctus id.
+            </p>
+          </div>
+        </a>
+        <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <a
+            rel="noopener noreferrer"
+            href="#"
+            className="max-w-sm mx-auto group hover:no-underline focus:no-underline "
+          >
+            <img
+              role="presentation"
+              className="object-cover w-full rounded h-44 "
+              src="https://source.unsplash.com/random/480x360?1"
+            />
+            <div className="p-6 space-y-2">
+              <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
+                In usu laoreet repudiare legendos
+              </h3>
+              <span className="text-xs ">January 21, 2021</span>
+              <p>
+                Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas
+                percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque
+                mea, ei vocent delicata indoctum pri.
+              </p>
+            </div>
+          </a>
+          <a
+            rel="noopener noreferrer"
+            href="#"
+            className="max-w-sm mx-auto group hover:no-underline focus:no-underline "
+          >
+            <img
+              role="presentation"
+              className="object-cover w-full rounded h-44 "
+              src="https://source.unsplash.com/random/480x360?2"
+            />
+            <div className="p-6 space-y-2">
+              <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
+                In usu laoreet repudiare legendos
+              </h3>
+              <span className="text-xs ">January 22, 2021</span>
+              <p>
+                Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas
+                percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque
+                mea, ei vocent delicata indoctum pri.
+              </p>
+            </div>
+          </a>
+          <a
+            rel="noopener noreferrer"
+            href="#"
+            className="max-w-sm mx-auto group hover:no-underline focus:no-underline "
+          >
+            <img
+              role="presentation"
+              className="object-cover w-full rounded h-44 "
+              src="https://source.unsplash.com/random/480x360?3"
+            />
+            <div className="p-6 space-y-2">
+              <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
+                In usu laoreet repudiare legendos
+              </h3>
+              <span className="text-xs ">January 23, 2021</span>
+              <p>
+                Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas
+                percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque
+                mea, ei vocent delicata indoctum pri.
+              </p>
+            </div>
+          </a>
+          <a
+            rel="noopener noreferrer"
+            href="#"
+            className="max-w-sm mx-auto group hover:no-underline focus:no-underline  hidden sm:block"
+          >
+            <img
+              role="presentation"
+              className="object-cover w-full rounded h-44 "
+              src="https://source.unsplash.com/random/480x360?4"
+            />
+            <div className="p-6 space-y-2">
+              <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
+                In usu laoreet repudiare legendos
+              </h3>
+              <span className="text-xs ">January 24, 2021</span>
+              <p>
+                Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas
+                percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque
+                mea, ei vocent delicata indoctum pri.
+              </p>
+            </div>
+          </a>
+          <a
+            rel="noopener noreferrer"
+            href="#"
+            className="max-w-sm mx-auto group hover:no-underline focus:no-underline  hidden sm:block"
+          >
+            <img
+              role="presentation"
+              className="object-cover w-full rounded h-44 "
+              src="https://source.unsplash.com/random/480x360?5"
+            />
+            <div className="p-6 space-y-2">
+              <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
+                In usu laoreet repudiare legendos
+              </h3>
+              <span className="text-xs ">January 25, 2021</span>
+              <p>
+                Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas
+                percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque
+                mea, ei vocent delicata indoctum pri.
+              </p>
+            </div>
+          </a>
+          <a
+            rel="noopener noreferrer"
+            href="#"
+            className="max-w-sm mx-auto group hover:no-underline focus:no-underline  hidden sm:block"
+          >
+            <img
+              role="presentation"
+              className="object-cover w-full rounded h-44 "
+              src="https://source.unsplash.com/random/480x360?6"
+            />
+            <div className="p-6 space-y-2">
+              <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
+                In usu laoreet repudiare legendos
+              </h3>
+              <span className="text-xs ">January 26, 2021</span>
+              <p>
+                Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas
+                percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque
+                mea, ei vocent delicata indoctum pri.
+              </p>
+            </div>
+          </a>
+        </div>
+        <div className="flex justify-center">
+          <button type="button" className="px-6 py-3 text-sm rounded-md hover:underline ">
+            Load more posts...
+          </button>
         </div>
       </div>
-      <div className="flex shadow-md gap-6 my-10 rounded-lg overflow-hidden divide-x bg-gray-900 text-gray-100 divide-gray-700">
-        <div className="flex flex-1 flex-col p-4 border-l-8 border-green-600">
-          <span className="text-2xl">How does prototypical inheritance work? </span>
-          <span className="text-lg mt-3 text-justify dark:text-gray-400">
-            The Prototypal Inheritance is a feature in javascript used to add methods and properties
-            in objects. It is a method by which an object can inherit the properties and methods of
-            another object. Traditionally, in order to get and set the prototype of an object, we
-            use Object. getPrototypeOf and Object.
-          </span>
-        </div>
-      </div>
-      <div className="flex shadow-md gap-6 my-10 rounded-lg overflow-hidden divide-x bg-gray-900 text-gray-100 divide-gray-700">
-        <div className="flex flex-1 flex-col p-4 border-l-8 border-green-600">
-          <span className="text-2xl">What is a unit test? Why should we write unit tests? </span>
-          <span className="text-lg mt-3 text-justify dark:text-gray-400">
-            Unit Testing is a type of software testing where individual units or components of a
-            software are tested. The main objective of unit testing is to isolate written code to
-            test and determine if it works as intended. Unit testing is an important step in the
-            development process, because if done correctly, it can help detect early flaws in code
-            which may be more difficult to find in later testing stages.
-          </span>
-        </div>
-      </div>
-      <div className="flex shadow-md gap-6 my-10 rounded-lg overflow-hidden divide-x bg-gray-900 text-gray-100 divide-gray-700">
-        <div className="flex flex-1 flex-col p-4 border-l-8 border-green-600">
-          <span className="text-2xl">React vs Angular vs Vue? </span>
-          <span className="text-lg mt-3 text-justify dark:text-gray-400">
-            Both - Angular JS and React JS frameworks are used to create web interfaces for front
-            end development. Angular is Google's matured and advanced JavaScript framework based on
-            TypeScript, whereas Vue is a progressive open-source front-end JavaScript framework
-            created by Evan You
-          </span>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 

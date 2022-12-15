@@ -64,7 +64,7 @@ const AddProduct = () => {
   return (
     <div>
       <h3 className="text-2xl font-bold mb-3">Add Product</h3>
-      <div className="w-full mx-auto mb-24 p-4 shadow-lg rounded-lg bg-gray-200">
+      <div className="mb-24 p-4 shadow-lg rounded-lg bg-gray-200">
         <form onSubmit={handleSubmit(handleAddProduct)}>
           <input
             type="text"

@@ -7,7 +7,7 @@ const DownloadApp = () => {
   return (
     <div className="card card-side bg-base-100 shadow-lg p-8 my-20">
       <figure>
-        <img src={download} alt="" className="lg:w-1/2" />
+        <img src={download} alt="" className="lg:w-1/2 hidden md:block lg:block" />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-2xl text-green-500">Download our app</h2>
