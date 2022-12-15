@@ -12,11 +12,11 @@ const Advertises = () => {
     },
   });
 
-  if (isLoading) {
-    return <progress className="progress w-full bg-green-500"></progress>;
-  }
+  // if (isLoading) {
+  //   return <progress className="progress w-full"></progress>;
+  // }
   return (
-    <div className="mt-10">
+    <div className="mt-20">
       {advertises?.length ? (
         <>
           <h3 className="text-2xl mb-6  font-bold mt-10">
@@ -27,15 +27,16 @@ const Advertises = () => {
       ) : (
         ""
       )}
-
-      {advertises?.map((advertise) => {
-        return (
-          advertise.ads === "advertise" &&
-          !advertise.paid === true && (
-            <Advertise key={advertise._id} advertise={advertise}></Advertise>
-          )
-        );
-      })}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {advertises?.map((advertise) => {
+          return (
+            advertise.ads === "advertise" &&
+            !advertise.paid === true && (
+              <Advertise key={advertise._id} advertise={advertise}></Advertise>
+            )
+          );
+        })}
+      </div>
     </div>
   );
 };

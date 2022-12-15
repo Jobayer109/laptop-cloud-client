@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import noItem from "../../assets/images/no_item.svg";
-import BookingModal from "./BookingModal";
 import Laptop from "./Laptop";
 
 const Laptops = () => {
   const laptops = useLoaderData();
-  const [details, setDetails] = useState(null);
 
   return (
     <div>
@@ -32,11 +30,10 @@ const Laptops = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6">
           {" "}
           {laptops?.map((laptop) => (
-            <Laptop key={laptop._id} laptop={laptop} setDetails={setDetails}></Laptop>
+            <Laptop key={laptop._id} laptop={laptop}></Laptop>
           ))}
         </div>
       </div>
-      {details && <BookingModal details={details} setDetails={setDetails}></BookingModal>}
     </div>
   );
 };

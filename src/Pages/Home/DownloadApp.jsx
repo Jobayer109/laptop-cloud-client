@@ -5,7 +5,7 @@ import download from "../../assets/images/download banner.svg";
 
 const DownloadApp = () => {
   return (
-    <div className="card card-side bg-base-100 shadow-lg p-8 my-10">
+    <div className="card card-side bg-base-100 shadow-lg p-8 my-20">
       <figure>
         <img src={download} alt="" className="lg:w-1/2" />
       </figure>

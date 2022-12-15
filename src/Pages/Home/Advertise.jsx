@@ -1,8 +1,8 @@
-import { FaCheckCircle } from "react-icons/fa";
-import { PhotoProvider, PhotoView } from "react-photo-view";
+import { Link } from "react-router-dom";
 
 const Advertise = ({ advertise }) => {
   const {
+    _id,
     img,
     location,
     name,
@@ -12,34 +12,27 @@ const Advertise = ({ advertise }) => {
     seller_name,
     year_of_use,
     phone,
+    description,
   } = advertise;
 
   return (
-    <section>
-      <div className="flex items-center justify-around shadow-lg bg-green-200 mt-6">
-        <figure>
-          <PhotoProvider>
-            <PhotoView src={img}>
-              <img src={img} alt="" className="w-80 h-60 rounded-l-full p-10" />
-            </PhotoView>
-          </PhotoProvider>
-        </figure>
-        <div className="w-1/2">
-          <h2 className="">{name}</h2>
-          <div className="text-sm">
-            <p>Resale Price: ${resale_price}</p>
-            <p>Original Price: ${original_price}</p>
-            <p>Location: {location}</p>
-            <p>Posted on: {posted_on}</p>
-            <p>Years of use: {year_of_use} year</p>
-            <p>Phone: {phone}</p>
-            <p className="flex items-center">
-              Seller's name: {seller_name} <FaCheckCircle className="ml-2 text-blue-500" />{" "}
-              <span></span>
-            </p>
-          </div>
+    <section card className=" border rounded-md py-3">
+      <Link
+        to={`/laptop/${_id}`}
+        className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900"
+      >
+        <img className="object-cover w-full rounded h-44 dark:bg-gray-500" src={img} alt="" />
+        <div className="p-6 space-y-2">
+          <h3 className="text-xl font-semibold group-hover:underline group-focus:underline">
+            {name}
+          </h3>
+          <span className="text-xs dark:text-gray-400 -mb-2">Posted on: {posted_on}</span>
+          <p className="text-xs dark:text-gray-400 mt-0">{location}</p>
         </div>
-      </div>
+        <div className="text-center">
+          <p className="badge badge-success mr-2 text-slate-700">Click here to view details</p>
+        </div>
+      </Link>
     </section>
   );
 };
