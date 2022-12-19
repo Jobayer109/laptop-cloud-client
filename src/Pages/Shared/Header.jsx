@@ -46,14 +46,6 @@ const Header = () => {
                 (user?.email && "Dashboard")}
             </Link>
           </li>
-          <li>
-            <Link
-              className="text-sm hover:border-b-2 pb-1 text-white hover:border-green-400 hover:text-white"
-              to="/profile"
-            >
-              Profile
-            </Link>
-          </li>
         </>
       )}
 

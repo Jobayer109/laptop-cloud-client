@@ -1,24 +1,29 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import google from "../../assets/icons/google.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
 import useToken from "../../Hooks/useToken";
 
 const Register = () => {
-  const { createUser, update, googleSignIn } = useContext(AuthContext);
+  const { createUser, update, googleSignIn, logOut } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const [error, setError] = useState("");
   const [createdEmail, setCreatedEmail] = useState("");
   const navigate = useNavigate();
   const [isToken] = useToken(createdEmail);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   console.log(createdEmail);
 
-  if (isToken) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (isToken) {
+      navigate(from, { replace: true });
+    }
+  }, [isToken, from, navigate]);
   const {
     register,
     handleSubmit,
@@ -29,9 +34,10 @@ const Register = () => {
     createUser(data.email, data.password)
       .then((result) => {
         update(data.name);
-        setError("");
+        swal("Please sign in now!", "..............", "success");
         setCreatedEmail(data.email);
-        swal("User Created Successfully");
+        logOut();
+        setError("");
         console.log(result.user);
       })
       .catch((error) => {
@@ -57,7 +63,7 @@ const Register = () => {
             email: data.email,
             role: data.role,
           };
-          fetch(`https://laptop-cloud-server.vercel.app/users`, {
+          fetch(`http://localhost:5000/users`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -80,7 +86,7 @@ const Register = () => {
           user_name: result.user?.displayName,
           role: "buyer",
         };
-        fetch(`https://laptop-cloud-server.vercel.app/users`, {
+        fetch(`http://localhost:5000/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",

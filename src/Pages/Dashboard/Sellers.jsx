@@ -8,7 +8,7 @@ const Sellers = () => {
   const { data: sellers, refetch } = useQuery({
     queryKey: ["sellers"],
     queryFn: async () => {
-      const res = await fetch(`https://laptop-cloud-server.vercel.app/sellers`, {
+      const res = await fetch(`http://localhost:5000/sellers`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("Token")}`,
         },
@@ -19,7 +19,7 @@ const Sellers = () => {
   });
 
   const handleDelete = (id) => {
-    fetch(`https://laptop-cloud-server.vercel.app/users/${id}`, {
+    fetch(`http://localhost:5000/users/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -31,7 +31,7 @@ const Sellers = () => {
       });
   };
   const handleVerified = (email) => {
-    fetch(`https://laptop-cloud-server.vercel.app/sellers/${email}`, {
+    fetch(`http://localhost:5000/sellers/${email}`, {
       method: "PUT",
     })
       .then((res) => res.json())
