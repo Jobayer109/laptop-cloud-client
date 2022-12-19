@@ -1,7 +1,7 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import google from "../../assets/icons/google.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
@@ -14,12 +14,10 @@ const Register = () => {
   const [createdEmail, setCreatedEmail] = useState("");
   const navigate = useNavigate();
   const [isToken] = useToken(createdEmail);
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
   console.log(createdEmail);
 
   if (isToken) {
-    navigate(from, { replace: true });
+    navigate("/");
   }
   const {
     register,
@@ -91,9 +89,12 @@ const Register = () => {
         })
           .then((res) => res.json())
           .then((data) => {
+            console.log(data);
+            if (data.acknowledged) {
+              setCreatedEmail(result.user.email);
+              // navigate("/");
+            }
             console.log(result.user.email);
-            setCreatedEmail(result.user.email);
-            navigate("/");
           });
       })
       .catch((error) => console.log(error.message));

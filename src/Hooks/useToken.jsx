@@ -9,10 +9,8 @@ const useToken = (email) => {
       fetch(`https://laptop-cloud-server.vercel.app/jwt?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
-          if (data.status === true) {
-            localStorage.setItem("Token", data.token);
-            setIsToken(data.token);
-          }
+          localStorage.setItem("Token", data.token);
+          setIsToken(data.token);
           console.log(data.token);
         });
     }
