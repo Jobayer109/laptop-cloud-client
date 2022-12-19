@@ -10,10 +10,10 @@ const useToken = (email) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.status === true) {
-            localStorage.setItem("Token", data.isToken);
-            setIsToken(data.isToken);
+            setIsToken(data.token);
+            localStorage.setItem("Token", data.token);
           }
-          console.log(data.isToken);
+          console.log(data.token);
         });
     }
   }, [email]);

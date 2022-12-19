@@ -155,6 +155,9 @@ const Register = () => {
           {...register("image", { required: true })}
           className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500 outline-none"
         />{" "}
+        {errors.image?.type === "required" && (
+          <p className="text-xs text-red-700">Photo is required</p>
+        )}
         <br />
         <input
           type="submit"
