@@ -1,7 +1,8 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 import google from "../../assets/icons/google.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
 import useToken from "../../Hooks/useToken";
@@ -13,10 +14,12 @@ const Register = () => {
   const [createdEmail, setCreatedEmail] = useState("");
   const navigate = useNavigate();
   const [isToken] = useToken(createdEmail);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   console.log(createdEmail);
 
   if (isToken) {
-    navigate("/");
+    navigate(from, { replace: true });
   }
   const {
     register,
@@ -27,9 +30,10 @@ const Register = () => {
   const handleRegister = (data) => {
     createUser(data.email, data.password)
       .then((result) => {
-        setCreatedEmail(data.email);
         update(data.name);
         setError("");
+        setCreatedEmail(data.email);
+        swal("User Created Successfully");
         console.log(result.user);
       })
       .catch((error) => {
@@ -105,7 +109,7 @@ const Register = () => {
           name="name"
           {...register("name", { required: true })}
           placeholder="Your name"
-          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500"
+          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500 outline-none"
         />{" "}
         {errors.name?.type === "required" && (
           <p className="text-xs text-red-700">Name is required</p>
@@ -116,7 +120,7 @@ const Register = () => {
           name="email"
           {...register("email", { required: true })}
           placeholder="Email"
-          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500"
+          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500 outline-none"
         />{" "}
         {errors.email?.type === "required" && (
           <p className="text-xs text-red-700">Email is required</p>
@@ -130,7 +134,7 @@ const Register = () => {
             pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$/,
           })}
           placeholder="Password"
-          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500"
+          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500 outline-none"
         />{" "}
         {errors.password?.type === "required" && (
           <p className="text-xs text-red-700">Password is required</p>
@@ -138,11 +142,9 @@ const Register = () => {
         <br />
         <select
           {...register("role", { required: true })}
-          className="select select-bordered  border-green-500 w-80 mt-2"
+          className="select select-bordered  border-green-500 w-80 mt-2 outline-none"
         >
-          <option disabled selected>
-            Select your role
-          </option>
+          <option disabled defaultValue={"Select your role"}></option>
           <option>buyer</option>
           <option>seller</option>
         </select>
@@ -151,7 +153,7 @@ const Register = () => {
           type="file"
           name="image"
           {...register("image", { required: true })}
-          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500"
+          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500 outline-none"
         />{" "}
         <br />
         <input

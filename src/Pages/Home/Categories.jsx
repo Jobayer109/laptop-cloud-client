@@ -18,11 +18,11 @@ const Categories = () => {
 
   return (
     <section>
-      <div className="flex flex-wrap w-[50%] mx-auto mt-16">
+      <div className=" w-[50%] mx-auto mt-16">
         <input
           type="search"
           placeholder="Ex: Samsung"
-          className="w-96 p-3 rounded-l-lg border border-green-500"
+          className="w-96 p-3 rounded-l-lg border border-green-500 outline-none"
         />
         <button
           type="button"
@@ -37,7 +37,7 @@ const Categories = () => {
       </h3>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:grid-cols-4 mt-10 bg-green- p-4 rounded-lg shadow-">
         {categories?.map((category) => (
-          <Category key={category._id} category={category}></Category>
+          <Category key={category._id} category={category} isLoading={isLoading}></Category>
         ))}
       </div>
     </section>

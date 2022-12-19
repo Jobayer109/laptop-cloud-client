@@ -64,24 +64,25 @@ const LaptopDetails = () => {
             </label>
           </div>
 
-          <div className="flex items-center justify-between text-sm bg-green-50 py-1">
+          <div className="flex items-center justify-between text-md bg-green-50 py-1">
             <div>
-              <p>
-                Brand: <span className="font-semibold">{name}</span>
+              <p className="font-semibold">
+                {" "}
+                Brand: <span className="font-normal">{name}</span>
               </p>
-              <p>
-                Year of use: <span className="font-semibold">{year_of_use}</span> years
+              <p className="font-semibold">
+                Year of use: <span className="font-normal">{year_of_use}</span> years
               </p>
-              <p>
-                Phone: <span className="font-semibold">{phone}</span>
+              <p className="font-semibold">
+                Phone: <span className="font-normal">{phone}</span>
               </p>
             </div>
             <div className="mr-12">
-              <p>
-                Previous Price: $ <span className="font-semibold">{original_price}</span>
+              <p className="font-semibold">
+                Previous Price: $ <span className="font-normal">{original_price}</span>
               </p>
-              <p>
-                Condition:<span className="font-semibold">{condition}</span>
+              <p className="font-semibold">
+                Condition:<span className="font-normal">{condition}</span>
               </p>
             </div>
           </div>

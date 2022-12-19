@@ -1,17 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Blogs = () => {
   return (
     <section className="">
-      <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
-        <a
+      <div className="container  max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
+        <Link
           rel="noopener noreferrer"
           href="#"
-          className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 "
+          className="block border border-gray-400 rounded-md max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 "
         >
           <img
-            src="https://source.unsplash.com/random/480x360"
             alt=""
+            src="https://source.unsplash.com/random/480x360"
             className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 "
           />
           <div className="p-6 space-y-2 lg:col-span-5">
@@ -24,14 +25,15 @@ const Blogs = () => {
               affert putent doctus id.
             </p>
           </div>
-        </a>
+        </Link>
         <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <a
+          <Link
             rel="noopener noreferrer"
             href="#"
-            className="max-w-sm mx-auto group hover:no-underline focus:no-underline "
+            className="border border-gray-400 rounded-md max-w-sm mx-auto group hover:no-underline focus:no-underline "
           >
             <img
+              alt=""
               role="presentation"
               className="object-cover w-full rounded h-44 "
               src="https://source.unsplash.com/random/480x360?1"
@@ -47,13 +49,14 @@ const Blogs = () => {
                 mea, ei vocent delicata indoctum pri.
               </p>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             rel="noopener noreferrer"
             href="#"
-            className="max-w-sm mx-auto group hover:no-underline focus:no-underline "
+            className="border border-gray-400 rounded-md max-w-sm mx-auto group hover:no-underline focus:no-underline "
           >
             <img
+              alt=""
               role="presentation"
               className="object-cover w-full rounded h-44 "
               src="https://source.unsplash.com/random/480x360?2"
@@ -69,13 +72,14 @@ const Blogs = () => {
                 mea, ei vocent delicata indoctum pri.
               </p>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             rel="noopener noreferrer"
             href="#"
-            className="max-w-sm mx-auto group hover:no-underline focus:no-underline "
+            className="border border-gray-400 rounded-md max-w-sm mx-auto group hover:no-underline focus:no-underline "
           >
             <img
+              alt=""
               role="presentation"
               className="object-cover w-full rounded h-44 "
               src="https://source.unsplash.com/random/480x360?3"
@@ -91,13 +95,14 @@ const Blogs = () => {
                 mea, ei vocent delicata indoctum pri.
               </p>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             rel="noopener noreferrer"
             href="#"
-            className="max-w-sm mx-auto group hover:no-underline focus:no-underline  hidden sm:block"
+            className="border border-gray-400 rounded-md max-w-sm mx-auto group hover:no-underline focus:no-underline  hidden sm:block"
           >
             <img
+              alt=""
               role="presentation"
               className="object-cover w-full rounded h-44 "
               src="https://source.unsplash.com/random/480x360?4"
@@ -113,13 +118,14 @@ const Blogs = () => {
                 mea, ei vocent delicata indoctum pri.
               </p>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             rel="noopener noreferrer"
             href="#"
-            className="max-w-sm mx-auto group hover:no-underline focus:no-underline  hidden sm:block"
+            className="border border-gray-400 rounded-md max-w-sm mx-auto group hover:no-underline focus:no-underline  hidden sm:block"
           >
             <img
+              alt=""
               role="presentation"
               className="object-cover w-full rounded h-44 "
               src="https://source.unsplash.com/random/480x360?5"
@@ -135,13 +141,14 @@ const Blogs = () => {
                 mea, ei vocent delicata indoctum pri.
               </p>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             rel="noopener noreferrer"
             href="#"
-            className="max-w-sm mx-auto group hover:no-underline focus:no-underline  hidden sm:block"
+            className="border border-gray-400 rounded-md max-w-sm mx-auto group hover:no-underline focus:no-underline  hidden sm:block"
           >
             <img
+              alt=""
               role="presentation"
               className="object-cover w-full rounded h-44 "
               src="https://source.unsplash.com/random/480x360?6"
@@ -157,7 +164,7 @@ const Blogs = () => {
                 mea, ei vocent delicata indoctum pri.
               </p>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="flex justify-center">
           <button type="button" className="px-6 py-3 text-sm rounded-md hover:underline ">

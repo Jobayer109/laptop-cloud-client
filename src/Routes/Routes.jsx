@@ -15,7 +15,9 @@ import Laptops from "../Pages/Home/Laptops";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
 import Blogs from "../Pages/Shared/Blogs";
+import ContactUs from "../Pages/Shared/ContactUs";
 import ErrorPage from "../Pages/Shared/ErrorPage";
+import Profile from "../Pages/Shared/Profile";
 import AdmitRoute from "./AdmitRoute";
 import PrivateRoute from "./PrivateRoute";
 import SellerRoute from "./SellerRoute";
@@ -49,13 +51,21 @@ const router = createBrowserRouter([
           fetch(`https://laptop-cloud-server.vercel.app/category/${params.id}`),
       },
       {
-        path: "laptop/:id",
+        path: "/laptop/:id",
         element: <LaptopDetails></LaptopDetails>,
         loader: ({ params }) => fetch(`https://laptop-cloud-server.vercel.app/laptop/${params.id}`),
       },
       {
         path: "blogs",
         element: <Blogs />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+      {
+        path: "contact",
+        element: <ContactUs />,
       },
     ],
   },

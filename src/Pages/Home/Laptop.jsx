@@ -6,10 +6,10 @@ const Laptop = ({ laptop }) => {
   const { img, location, name, _id, resale_price, paid } = laptop;
 
   return (
-    <div className="card w-80 hover:border-green-500 hover:shadow-xl border border-black rounded-md">
+    <div className="card w-72 mx-auto hover:border-green-500 hover:shadow-xl border border-black rounded-md">
       <PhotoProvider>
         <PhotoView src={img}>
-          <img src={img} alt="" className=" w-2/3 h-44 mx-auto" />
+          <img src={img} alt="" className=" w-[90%] h-44 mx-auto" />
         </PhotoView>
       </PhotoProvider>
 

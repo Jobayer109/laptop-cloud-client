@@ -60,7 +60,7 @@ const Login = () => {
           name="email"
           {...register("email", { required: true })}
           placeholder="Email"
-          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500"
+          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500 outline-none"
         />{" "}
         {errors.email?.type === "required" && (
           <p className="text-xs text-red-700">Email is required</p>
@@ -71,7 +71,7 @@ const Login = () => {
           name="password"
           {...register("password", { required: true })}
           placeholder="Password"
-          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500"
+          className="border w-80 p-3 text-sm rounded-md mt-2 border-green-500 outline-none"
         />{" "}
         {errors.password?.type === "required" && (
           <p className="text-xs text-red-700">Password is required</p>
