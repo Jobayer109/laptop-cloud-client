@@ -6,7 +6,7 @@ const Categories = () => {
   const { data: categories, isLoading } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const res = await fetch(`https://laptop-cloud-server.vercel.app/categories`);
+      const res = await fetch(`http://localhost:5000/categories`);
       const data = await res.json();
       return data;
     },
@@ -18,20 +18,7 @@ const Categories = () => {
 
   return (
     <section>
-      <div className=" w-[50%] mx-auto mt-16">
-        <input
-          type="search"
-          placeholder="Ex: Samsung"
-          className="w-96 p-3 rounded-l-lg border border-green-500 outline-none"
-        />
-        <button
-          type="button"
-          className="w- p-3 font rounded-r-lg bg-green-600 hover:bg-green-700 text-white"
-        >
-          Search
-        </button>
-      </div>
-      <h3 className="text-2xl mb-6  font-bold mt-10">
+      <h3 className="text-2xl mb-6  font-bold mt-20">
         {" "}
         <span className="text-3xl text-green-600 font-bold">C</span>ategories
       </h3>

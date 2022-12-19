@@ -59,7 +59,7 @@ const Register = () => {
             email: data.email,
             role: data.role,
           };
-          fetch(`https://laptop-cloud-server.vercel.app/users`, {
+          fetch(`http://localhost:5000/users`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -82,7 +82,7 @@ const Register = () => {
           user_name: result.user?.displayName,
           role: "buyer",
         };
-        fetch(`https://laptop-cloud-server.vercel.app/users`, {
+        fetch(`http://localhost:5000/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -168,13 +168,13 @@ const Register = () => {
           <div className="divider  text-xs text-green-600">OR</div>
           <div
             onClick={handleGoogleSignIn}
-            className="flex items-center border border-green-400 rounded-full p-1 hover:bg-green-200"
+            className="md:flex lg:flex md:items-center lg:items-center md:border lg:border border-green-500 rounded-full p-1 hover:bg-green-200"
           >
-            <img src={google} alt="" className="h-8" />
+            <img src={google} alt="" className="h-8 mx-auto md:mx-0 lg:mx-0" />
             <input
               type="button"
               value="Continue with google"
-              className="ml-16 font-medium text-sm"
+              className="md:ml-10 lg:ml-16  font-medium text-sm hidden md:block lg:block"
             />
           </div>
           <p className="text-xs mt-2">

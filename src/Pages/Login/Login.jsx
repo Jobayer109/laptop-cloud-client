@@ -87,13 +87,15 @@ const Login = () => {
         />
         <div className="w-[27%] mx-auto cursor-pointer ">
           <div className="divider  text-xs text-green-600">OR</div>
-          <div className="flex items-center border border-green-500 rounded-full p-1 hover:bg-green-200">
-            <img src={google} alt="" className="h-8" />
+          <div
+            onClick={handleGoogleSignIn}
+            className="md:flex lg:flex md:items-center lg:items-center md:border lg:border border-green-500 rounded-full p-1 hover:bg-green-200"
+          >
+            <img src={google} alt="" className="h-8 mx-auto md:mx-0 lg:mx-0" />
             <input
-              onClick={handleGoogleSignIn}
               type="button"
               value="Continue with google"
-              className="ml-16 font-medium text-sm"
+              className="md:ml-10 lg:ml-16  font-medium text-sm hidden md:block lg:block"
             />
           </div>
           <p className="text-xs mt-2">

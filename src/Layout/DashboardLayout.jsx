@@ -12,7 +12,7 @@ const DashboardLayout = () => {
   const [isSeller] = useSeller(user?.email);
 
   return (
-    <section>
+    <section className="">
       <Header />
       <div className="drawer drawer-mobile px-10 mt-10">
         <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />

@@ -8,11 +8,11 @@ const Banner = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img
           src={banner}
-          className="lg:w-1/2 lg:h-[400px] translate-x-4 duration-500 ease-in "
+          className="h-[400px] object-contain mx-auto translate-x-4 duration-500 ease-in "
           alt="laptop"
         />
         <div className="">
-          <h1 className="text-5xl font-sans font-bold ">
+          <h1 className="text-5xl font-sans font-bold object-contain">
             Sell Here <br /> Your used Laptop
           </h1>
           <p className="py-6 text-sm">

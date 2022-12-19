@@ -1,6 +1,6 @@
 import React from "react";
-import appleStore from "../../assets/icons/Apple store-Logo.wine.svg";
-import playStore from "../../assets/icons/play_store.png";
+import appleStore from "../../assets/icons/appleStore.png";
+import playStore from "../../assets/icons/googleStore.webp";
 import download from "../../assets/images/download banner.svg";
 
 const DownloadApp = () => {
@@ -14,17 +14,9 @@ const DownloadApp = () => {
         <p className="text-gray-500 text-sm">
           Buying & Selling is easier from our app too! To buy or sell on the go, download our app.
         </p>
-        <div className=" md:flex lg:flex items-start justify-start">
-          <img
-            src={appleStore}
-            alt=""
-            className="sm:h-10 lg:h-16 sm:w-24 lg:w-36 sm:mt-2 border rounded-lg mr-2 bg-green-600 hover:-translate-y-2 duration-500 ease-in-out "
-          />
-          <img
-            src={playStore}
-            alt=""
-            className="sm:h-10 lg:h-16 sm:w-24 lg:w-36 sm:mt-2 border rounded-lg mr-2 bg-green-600 hover:-translate-y-2 duration-500 ease-out "
-          />
+        <div className="flex-grow-0 items-start justify-start">
+          <img src={playStore} alt="" className="h-16 border-2 border-black rounded-xl w-44" />
+          <img src={appleStore} alt="" className="h-16 mt-4 border rounded-xl" />
         </div>
       </div>
     </div>

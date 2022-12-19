@@ -26,7 +26,7 @@ const BookingModal = ({ details, setDetails }) => {
     };
     console.log(booking);
 
-    fetch(`https://laptop-cloud-server.vercel.app/bookings`, {
+    fetch(`http://localhost:5000/bookings`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

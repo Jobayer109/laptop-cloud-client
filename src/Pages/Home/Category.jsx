@@ -11,7 +11,7 @@ const Category = ({ category, isLoading }) => {
       {" "}
       <Link to={`/category/${id}`}>
         <div className="card-body items-center text-center">
-          <img src={img} alt="" className="h-8" />
+          <img src={img} alt="" className="h-8 object-contain" />
         </div>
       </Link>
     </div>

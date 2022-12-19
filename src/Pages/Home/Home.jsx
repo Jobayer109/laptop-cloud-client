@@ -7,7 +7,7 @@ import Reviews from "./Reviews";
 
 const Home = () => {
   return (
-    <div className="px-20">
+    <div className="px-10">
       <Banner />
       <Categories />
       <Advertises />
