@@ -63,7 +63,7 @@ const Register = () => {
             email: data.email,
             role: data.role,
           };
-          fetch(`http://localhost:5000/users`, {
+          fetch(`https://laptop-cloud-server.vercel.app/users`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -86,7 +86,7 @@ const Register = () => {
           user_name: result.user?.displayName,
           role: "buyer",
         };
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://laptop-cloud-server.vercel.app/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
