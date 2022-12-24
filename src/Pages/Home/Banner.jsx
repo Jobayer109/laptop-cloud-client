@@ -8,7 +8,7 @@ const Banner = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img
           src={banner}
-          className="h-[400px] object-contain mx-auto translate-x-4 duration-500 ease-in "
+          className="h-[400px] hidden sm:block md:block lg:block xl:block object-contain mx-auto translate-x-4 duration-500 ease-in "
           alt="laptop"
         />
         <div className="">
@@ -20,7 +20,7 @@ const Banner = () => {
             brands and <br /> models used laptop without any doubt and hassels.
           </p>
           <Link to="/">
-            <button className="border w-36 bg-green-600 px-2 py-3 rounded-md font-medium hover:bg-green-800 text-white">
+            <button className="border w-40 bg-green-600 px-2 py-3 rounded-sm font-medium hover:bg-green-800 text-white">
               Get Started
             </button>
           </Link>

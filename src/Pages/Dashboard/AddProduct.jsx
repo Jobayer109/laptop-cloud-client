@@ -35,7 +35,7 @@ const AddProduct = () => {
             phone: data.phone,
             resale_price: data.resale_price,
             original_price: data.original_price,
-            posted_on: data.date,
+            posted_on: new Date(),
             name: data.product,
             year_of_use: data.purchase,
             seller_name: user?.displayName,
@@ -153,12 +153,12 @@ const AddProduct = () => {
               <option>Fair</option>
             </select>
           </div>
-          <input
+          {/* <input
             type="date"
             {...register("date", { required: true })}
             className="w-full border border-gray-500 p-3 text-sm rounded-lg mt-2 mb-2"
           />
-          {errors.date && <span className="text-error text-xs">This field is required</span>}
+          {errors.date && <span className="text-error text-xs">This field is required</span>} */}
           <br />
           <input
             type="file"

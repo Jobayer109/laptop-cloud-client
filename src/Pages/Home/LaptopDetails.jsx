@@ -10,6 +10,7 @@ import {
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link, useLoaderData } from "react-router-dom";
 import BookingModal from "./BookingModal";
+import "./LaptopDetails.css";
 
 const LaptopDetails = () => {
   const [details, setDetails] = useState(null);
@@ -29,11 +30,13 @@ const LaptopDetails = () => {
     description,
     condition,
   } = detail;
+
   return (
     <section className="mb-20">
       <div
         className="md:px-24 lg:px-24"
-        style={{ display: "grid", gridTemplateColumns: "4fr 2fr", gap: "24px" }}
+
+        // style={{ display: "grid", gridTemplateColumns: "4fr 2fr", gap: "24px" }}
       >
         <div className=" p-6">
           <div className="flex items-center justify-between">
@@ -50,7 +53,7 @@ const LaptopDetails = () => {
           </div>
           <PhotoProvider>
             <PhotoView src={img}>
-              <img src={img} alt="" className=" w-2/3 h-96 mx-auto" />
+              <img src={img} alt="" className=" w-2/3 h-96 mx-auto object-contain" />
             </PhotoView>
           </PhotoProvider>
           <div className="flex items-center justify-between mb-6">
@@ -92,8 +95,9 @@ const LaptopDetails = () => {
             <p>{description}</p>
           </div>
         </div>
-        <div className=" border-gray-200 p-4  w-96 " style={{}}>
-          <div>
+        <hr />
+        <div className=" border-gray-200 p-4  w-96 mx-auto mt-10">
+          <div className="shadow-md">
             {verified ? (
               <div className="flex items-center justify-between border p-3 bg-green-50">
                 <p className="font-bold ">
@@ -107,11 +111,11 @@ const LaptopDetails = () => {
               </p>
             )}
           </div>
-          <div className=" flex items-center bg-green-50 font-bold border p-3 mt-2">
+          <div className=" flex items-center bg-green-50 font-bold border p-3 mt-2 shadow-md">
             <p>Chat</p>
             <FaComments className="ml-4 text-blue-400" />
           </div>
-          <div className="border mt-2 p-3">
+          <div className="border mt-2 p-3 shadow-xl">
             <div className="flex items-center ">
               <FaExclamationTriangle className="mr-3 text-red-500" />
               <h3 className="font-bold">Safety Tips</h3>

@@ -77,7 +77,7 @@ const Login = () => {
           <p className="text-xs text-red-700">Password is required</p>
         )}
         <br />
-        <p className="w-[84%] cursor-pointer text-green-500 hover:underline">
+        <p className="w-[85%] cursor-pointer text-green-500 hover:underline">
           <small>Forgot password ?</small>
         </p>
         <input
@@ -99,11 +99,8 @@ const Login = () => {
             />
           </div>
           <p className="text-xs mt-2">
-            New in Laptop Cloud ?{" "}
-            <Link
-              to="/register"
-              className="text-green-600 font-mono text-sm font-semibold hover:underline"
-            >
+            New in Laptop Cloud ? {""}
+            <Link className="text-green-600 text-sm  hover:underline" to="/register">
               create an account
             </Link>
           </p>

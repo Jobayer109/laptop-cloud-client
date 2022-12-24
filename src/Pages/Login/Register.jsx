@@ -34,7 +34,7 @@ const Register = () => {
     createUser(data.email, data.password)
       .then((result) => {
         update(data.name);
-        swal("Please sign in now!", "..............", "success");
+        swal("Please sign in now!", "", "success");
         setCreatedEmail(data.email);
         logOut();
         setError("");
@@ -186,10 +186,7 @@ const Register = () => {
           </div>
           <p className="text-xs mt-2">
             Already have an account ?{" "}
-            <Link
-              to="/login"
-              className="text-green-600 font-mono text-sm font-semibold hover:underline"
-            >
+            <Link to="/login" className="text-green-600  text-sm  hover:underline">
               please sign in
             </Link>
           </p>

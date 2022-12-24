@@ -50,7 +50,7 @@ const BookingModal = ({ details, setDetails }) => {
         <div className="modal-box relative">
           <label
             htmlFor="laptop-modal"
-            className="btn btn-sm btn-outline btn-error btn-circle absolute right-5 top-3"
+            className="btn btn-sm bg-red-600 hover:bg-red-700 btn-circle absolute right-5 top-3"
           >
             ✕
           </label>
