@@ -1,0 +1,118 @@
+[debug] [2022-12-24T16:55:08.727Z] ----------------------------------------------------------------------
+[debug] [2022-12-24T16:55:08.735Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\jobay\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-12-24T16:55:08.737Z] CLI Version:   11.16.1
+[debug] [2022-12-24T16:55:08.737Z] Platform:      win32
+[debug] [2022-12-24T16:55:08.737Z] Node Version:  v16.14.2
+[debug] [2022-12-24T16:55:08.745Z] Time:          Sat Dec 24 2022 22:55:08 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-12-24T16:55:08.745Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-24T16:55:08.754Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-12-24T16:55:09.071Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-24T16:55:09.072Z] > authorizing via signed-in user (jobayer.ahmed109@gmail.com)
+[debug] [2022-12-24T16:55:09.073Z] [iam] checking project laptop-cloud for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-24T16:55:09.080Z] > refreshing access token with scopes: []
+[debug] [2022-12-24T16:55:09.084Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-12-24T16:55:09.084Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-24T16:55:12.068Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-12-24T16:55:12.068Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-24T16:55:12.084Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/laptop-cloud:testIamPermissions [none]
+[debug] [2022-12-24T16:55:12.085Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/laptop-cloud:testIamPermissions x-goog-quota-user=projects/laptop-cloud
+[debug] [2022-12-24T16:55:12.085Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/laptop-cloud:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-24T16:55:12.383Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-12-24T16:55:12.383Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2022-12-24T16:55:16.218Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/laptop-cloud:testIamPermissions 200
+[debug] [2022-12-24T16:55:16.219Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/laptop-cloud:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-24T16:55:16.225Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/laptop-cloud [none]
+[debug] [2022-12-24T16:55:20.429Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/laptop-cloud 200
+[debug] [2022-12-24T16:55:20.430Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/laptop-cloud {"projectId":"laptop-cloud","projectNumber":"606629482910","displayName":"Laptop Cloud","name":"projects/laptop-cloud","resources":{"hostingSite":"laptop-cloud"},"state":"ACTIVE","etag":"1_6ae9c5a7-abff-4ca0-8c28-b5642e63963a"}
+[info] 
+[info] === Deploying to 'laptop-cloud'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-12-24T16:55:20.467Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/laptop-cloud/versions [none]
+[debug] [2022-12-24T16:55:20.467Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/laptop-cloud/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-12-24T16:55:24.454Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/laptop-cloud/versions 200
+[debug] [2022-12-24T16:55:24.458Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/laptop-cloud/versions {"name":"projects/606629482910/sites/laptop-cloud/versions/9452ce59bfc4019d","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[laptop-cloud]: beginning deploy... 
+[info] i  hosting[laptop-cloud]: found 23 files in build 
+[debug] [2022-12-24T16:55:24.552Z] [hosting] uploading with 200 concurrency
+[debug] [2022-12-24T16:55:25.784Z] [hosting] hash cache [YnVpbGQ] stored for 23 files
+[debug] [2022-12-24T16:55:25.785Z] [hosting][hash queue][FINAL] {"max":1190,"min":34,"avg":129.52173913043478,"active":0,"complete":23,"success":23,"errored":0,"retried":0,"total":23,"elapsed":1224}
+[debug] [2022-12-24T16:55:25.786Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/606629482910/sites/laptop-cloud/versions/9452ce59bfc4019d:populateFiles [none]
+[debug] [2022-12-24T16:55:25.786Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/606629482910/sites/laptop-cloud/versions/9452ce59bfc4019d:populateFiles {"files":{"/cat.json":"2cb29e864eebe078891640da56988ea08deb261689811262f7cc32be2eea9d81","/favicon.ico":"140406ceb298daf08d7966d524dd948daef5364ef12dcf15731fc0ffa4b2edae","/laptop.json":"0c2613267d2fa37f065a60d2bee33cde583c9fa260a7ebb655bcbc6eb0b15452","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/_redirect":"90fb3ca3e3e8b88234aceaa4e5336f02c284f4dab053c6cd651c150e9196019c","/index.html":"cefd8d43d76e12c4a01cd68e8c1932c5220e9b125a6697a91af151c981b03693","/asset-manifest.json":"719fe5782162662d956be47431ecbfe2fa8778d6dca6e588f15f465592f75589","/static/js/787.6c9caffa.chunk.js":"bb79d358711e44e6b78b42d1bea010c15c1ac75b64f97cdbc48fd7e8730c3b55","/static/js/787.6c9caffa.chunk.js.map":"af25942ae7ba44af8fe430db8eef4550baa2b04507d23fbd00e35154f8b8fc32","/static/js/main.9834eed3.js.LICENSE.txt":"f621b4e7f4e61953028a8d52b85cfaaac237bfffcb40034341de36786ecc3b16","/static/media/download banner.d9e22ca6bbe16e2302fa0a36a59cd8b5.svg":"965095282c2cfa7a4f58416a392c5d2bcdb7eb6c5dd722ca7a6fe0567a18833a","/static/css/main.1e35553c.css.map":"ea676c0ad10d4321084ca049cc93370ea191ea8996b1a3f749bb813da1c6643d","/static/media/empty.b5055e56282bba2de480b7282277f3f9.svg":"32351ab5aff2ebb96f32f1f998670ccba261baf8be2aab6016632b3cdf6a6699","/static/media/blogs.a0775cb2abc6f8f855dfc2da4adcea4f.svg":"427b684ac09e2ac96102459b2a98850f97c7ac287cd4accbdda932f48c688536","/static/media/googleStore.53589e1bfb2083a895ff.webp":"1ccd1778c7ff13c86374af634a3fbb0e060c7ffdb3bbf3298751a5dc2ff9b322","/static/media/no_item.0fb37711148becca6fa2b2b04bb12ed7.svg":"6ff27746788d0c0705cf139b8e1065088614a847a01e81c89319728263ac5021","/static/css/main.1e35553c.css":"b70d55f68606ec5ca78b7ef047d024e3b3fd71278bb5a1685bc7264f58fc9c59","/static/media/appleStore.0cf0a95d048e41e04acd.png":"abcc140d67ba066a9671f21399e959ba6f2029da319aac129701f34e6d2f071c","/static/media/logo.6f9723620f3412920016.png":"1bc83d52ffa4c5bab292b17b32eec29d62f7c86adc5d8cf05656493b29491e51","/static/media/banner.b233138c983474e92400.png":"40881c3a1f68268c7c66bdfdd168aa767aa1f74d1f7b253f5a0ecb4599dfb84f","/static/js/main.9834eed3.js":"5bdce07b1d5cb633fe39b2c0b5a2fd576f1cee3d638a1aa176218b33e208e33e","/static/js/main.9834eed3.js.map":"c4ed735ec3cebd56a1217be453c0cf78fa1a4600cfa6921779345e910ff62588"}}
+[debug] [2022-12-24T16:55:27.369Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/606629482910/sites/laptop-cloud/versions/9452ce59bfc4019d:populateFiles 200
+[debug] [2022-12-24T16:55:27.370Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/606629482910/sites/laptop-cloud/versions/9452ce59bfc4019d:populateFiles {"uploadRequiredHashes":["c4ed735ec3cebd56a1217be453c0cf78fa1a4600cfa6921779345e910ff62588","b70d55f68606ec5ca78b7ef047d024e3b3fd71278bb5a1685bc7264f58fc9c59","5bdce07b1d5cb633fe39b2c0b5a2fd576f1cee3d638a1aa176218b33e208e33e","cefd8d43d76e12c4a01cd68e8c1932c5220e9b125a6697a91af151c981b03693","719fe5782162662d956be47431ecbfe2fa8778d6dca6e588f15f465592f75589","ea676c0ad10d4321084ca049cc93370ea191ea8996b1a3f749bb813da1c6643d"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files"}
+[debug] [2022-12-24T16:55:27.375Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/c4ed735ec3cebd56a1217be453c0cf78fa1a4600cfa6921779345e910ff62588 [none]
+[debug] [2022-12-24T16:55:27.375Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/c4ed735ec3cebd56a1217be453c0cf78fa1a4600cfa6921779345e910ff62588 [stream]
+[debug] [2022-12-24T16:55:27.377Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/b70d55f68606ec5ca78b7ef047d024e3b3fd71278bb5a1685bc7264f58fc9c59 [none]
+[debug] [2022-12-24T16:55:27.378Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/b70d55f68606ec5ca78b7ef047d024e3b3fd71278bb5a1685bc7264f58fc9c59 [stream]
+[debug] [2022-12-24T16:55:27.382Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/5bdce07b1d5cb633fe39b2c0b5a2fd576f1cee3d638a1aa176218b33e208e33e [none]
+[debug] [2022-12-24T16:55:27.382Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/5bdce07b1d5cb633fe39b2c0b5a2fd576f1cee3d638a1aa176218b33e208e33e [stream]
+[debug] [2022-12-24T16:55:27.385Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/cefd8d43d76e12c4a01cd68e8c1932c5220e9b125a6697a91af151c981b03693 [none]
+[debug] [2022-12-24T16:55:27.386Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/cefd8d43d76e12c4a01cd68e8c1932c5220e9b125a6697a91af151c981b03693 [stream]
+[debug] [2022-12-24T16:55:27.389Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/719fe5782162662d956be47431ecbfe2fa8778d6dca6e588f15f465592f75589 [none]
+[debug] [2022-12-24T16:55:27.390Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/719fe5782162662d956be47431ecbfe2fa8778d6dca6e588f15f465592f75589 [stream]
+[debug] [2022-12-24T16:55:27.392Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/ea676c0ad10d4321084ca049cc93370ea191ea8996b1a3f749bb813da1c6643d [none]
+[debug] [2022-12-24T16:55:27.392Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/ea676c0ad10d4321084ca049cc93370ea191ea8996b1a3f749bb813da1c6643d [stream]
+[debug] [2022-12-24T16:55:27.396Z] [hosting][populate queue][FINAL] {"max":1592,"min":1592,"avg":1592,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1614}
+[debug] [2022-12-24T16:55:27.396Z] [hosting] uploads queued: 6
+[debug] [2022-12-24T16:55:30.936Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/719fe5782162662d956be47431ecbfe2fa8778d6dca6e588f15f465592f75589 200
+[debug] [2022-12-24T16:55:30.937Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/719fe5782162662d956be47431ecbfe2fa8778d6dca6e588f15f465592f75589 [stream]
+[debug] [2022-12-24T16:55:30.996Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/ea676c0ad10d4321084ca049cc93370ea191ea8996b1a3f749bb813da1c6643d 200
+[debug] [2022-12-24T16:55:30.997Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/ea676c0ad10d4321084ca049cc93370ea191ea8996b1a3f749bb813da1c6643d [stream]
+[debug] [2022-12-24T16:55:31.186Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/b70d55f68606ec5ca78b7ef047d024e3b3fd71278bb5a1685bc7264f58fc9c59 200
+[debug] [2022-12-24T16:55:31.187Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/b70d55f68606ec5ca78b7ef047d024e3b3fd71278bb5a1685bc7264f58fc9c59 [stream]
+[debug] [2022-12-24T16:55:31.199Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/cefd8d43d76e12c4a01cd68e8c1932c5220e9b125a6697a91af151c981b03693 200
+[debug] [2022-12-24T16:55:31.200Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/cefd8d43d76e12c4a01cd68e8c1932c5220e9b125a6697a91af151c981b03693 [stream]
+[debug] [2022-12-24T16:55:32.579Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/5bdce07b1d5cb633fe39b2c0b5a2fd576f1cee3d638a1aa176218b33e208e33e 200
+[debug] [2022-12-24T16:55:32.579Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/5bdce07b1d5cb633fe39b2c0b5a2fd576f1cee3d638a1aa176218b33e208e33e [stream]
+[debug] [2022-12-24T16:55:53.496Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/c4ed735ec3cebd56a1217be453c0cf78fa1a4600cfa6921779345e910ff62588 200
+[debug] [2022-12-24T16:55:53.497Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/laptop-cloud/versions/9452ce59bfc4019d/files/c4ed735ec3cebd56a1217be453c0cf78fa1a4600cfa6921779345e910ff62588 [stream]
+[debug] [2022-12-24T16:55:53.498Z] [hosting][upload queue][FINAL] {"max":26126,"min":3564,"avg":7693.833333333333,"active":0,"complete":6,"success":6,"errored":0,"retried":0,"total":6,"elapsed":26127}
+[info] +  hosting[laptop-cloud]: file upload complete 
+[debug] [2022-12-24T16:55:53.524Z] [hosting] deploy completed after 29048ms
+[debug] [2022-12-24T16:55:53.534Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "laptop-cloud"
+    },
+    "version": "projects/606629482910/sites/laptop-cloud/versions/9452ce59bfc4019d"
+  }
+]
+[info] i  hosting[laptop-cloud]: finalizing version... 
+[debug] [2022-12-24T16:55:53.545Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/laptop-cloud/versions/9452ce59bfc4019d updateMask=status%2Cconfig
+[debug] [2022-12-24T16:55:53.545Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/laptop-cloud/versions/9452ce59bfc4019d {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2022-12-24T16:55:56.013Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/laptop-cloud/versions/9452ce59bfc4019d 200
+[debug] [2022-12-24T16:55:56.014Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/laptop-cloud/versions/9452ce59bfc4019d {"name":"projects/606629482910/sites/laptop-cloud/versions/9452ce59bfc4019d","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-12-24T16:55:23.446274Z","createUser":{"email":"jobayer.ahmed109@gmail.com"},"finalizeTime":"2022-12-24T16:55:55.534740Z","finalizeUser":{"email":"jobayer.ahmed109@gmail.com"}}
+[debug] [2022-12-24T16:55:56.015Z] [hosting] finalized version for laptop-cloud:[object Object]
+[info] +  hosting[laptop-cloud]: version finalized 
+[info] i  hosting[laptop-cloud]: releasing new version... 
+[debug] [2022-12-24T16:55:56.024Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/laptop-cloud/channels/live/releases versionName=projects%2F606629482910%2Fsites%2Flaptop-cloud%2Fversions%2F9452ce59bfc4019d
+[debug] [2022-12-24T16:55:56.026Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/laptop-cloud/channels/live/releases {}
+[debug] [2022-12-24T16:55:57.840Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/laptop-cloud/channels/live/releases 200
+[debug] [2022-12-24T16:55:57.841Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/laptop-cloud/channels/live/releases {"name":"projects/606629482910/sites/laptop-cloud/channels/live/releases/1671900956654964","version":{"name":"projects/606629482910/sites/laptop-cloud/versions/9452ce59bfc4019d","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-12-24T16:55:23.446274Z","createUser":{"email":"jobayer.ahmed109@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp7tD8JfeOHNDxS_1v8-6DVmWYtdDMfWL5HB94hP"},"finalizeTime":"2022-12-24T16:55:55.534740Z","finalizeUser":{"email":"jobayer.ahmed109@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp7tD8JfeOHNDxS_1v8-6DVmWYtdDMfWL5HB94hP"}},"type":"DEPLOY","releaseTime":"2022-12-24T16:55:56.654964625Z","releaseUser":{"email":"jobayer.ahmed109@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp7tD8JfeOHNDxS_1v8-6DVmWYtdDMfWL5HB94hP"}}
+[debug] [2022-12-24T16:55:57.841Z] [hosting] release: {"name":"projects/606629482910/sites/laptop-cloud/channels/live/releases/1671900956654964","version":{"name":"projects/606629482910/sites/laptop-cloud/versions/9452ce59bfc4019d","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-12-24T16:55:23.446274Z","createUser":{"email":"jobayer.ahmed109@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp7tD8JfeOHNDxS_1v8-6DVmWYtdDMfWL5HB94hP"},"finalizeTime":"2022-12-24T16:55:55.534740Z","finalizeUser":{"email":"jobayer.ahmed109@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp7tD8JfeOHNDxS_1v8-6DVmWYtdDMfWL5HB94hP"}},"type":"DEPLOY","releaseTime":"2022-12-24T16:55:56.654964625Z","releaseUser":{"email":"jobayer.ahmed109@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp7tD8JfeOHNDxS_1v8-6DVmWYtdDMfWL5HB94hP"}}
+[info] +  hosting[laptop-cloud]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/laptop-cloud/overview
+[info] Hosting URL: https://laptop-cloud.web.app
+[debug] [2022-12-24T16:56:12.815Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\jobay\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.
